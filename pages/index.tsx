@@ -1,63 +1,33 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
-import IndexPage from 'components/IndexPage'
-import { getAllPosts, getSettings } from 'lib/sanity.client'
-import { Post, Settings } from 'lib/sanity.queries'
-import { GetStaticProps } from 'next'
-import { lazy } from 'react'
+import React from 'react'
+import Theme from "../components/Theme";
 
-const PreviewIndexPage = lazy(() => import('components/PreviewIndexPage'))
+export default function Home() {
 
-interface PageProps {
-  posts: Post[]
-  settings: Settings
-  preview: boolean
-  token: string | null
-}
 
-interface Query {
-  [key: string]: string
-}
-
-interface PreviewData {
-  token?: string
-}
-
-export default function Page(props: PageProps) {
-  const { posts, settings, preview, token } = props
-
-  if (preview) {
-    return (
-      <PreviewSuspense
-        fallback={
-          <IndexPage loading preview posts={posts} settings={settings} />
-        }
-      >
-        <PreviewIndexPage token={token} />
-      </PreviewSuspense>
-    )
-  }
-
-  return <IndexPage posts={posts} settings={settings} />
-}
-
-export const getStaticProps: GetStaticProps<
-  PageProps,
-  Query,
-  PreviewData
-> = async (ctx) => {
-  const { preview = false, previewData = {} } = ctx
-
-  const [settings, posts = []] = await Promise.all([
-    getSettings(),
-    getAllPosts(),
-  ])
-
-  return {
-    props: {
-      posts,
-      settings,
-      preview,
-      token: previewData.token ?? null,
-    },
-  }
+  return (
+    <div>
+   <Theme title="News">       <div className='w3-container  w3-row-padding w3-section ' style={{margin:"auto", width: '50%'}}>
+  <article className='w3-card w3-margin w3-col m3 w3-border w3-border-black w3-amber w3-button w3-round-xlarge'>
+      <div className="w3-border w3-white w3-panel w3-border-black">Picture</div>
+      <div className='w3-black'>Title</div>
+      <div className='w3-grey'>Date</div>
+  </article>
+  <article className='w3-card w3-margin w3-col m3 w3-border w3-border-black w3-amber w3-button w3-round-xlarge'>
+      <div className="w3-border w3-white w3-panel w3-border-black">Picture</div>
+      <div className='w3-black'>Title</div>
+      <div className='w3-grey'>Date</div>
+  </article>
+  <article className='w3-card w3-margin w3-col m3 w3-border w3-border-black w3-amber w3-button w3-round-xlarge'>
+      <div className="w3-border w3-white w3-panel w3-border-black">Picture</div>
+      <div className='w3-black'>Title</div>
+      <div className='w3-grey'>Date</div>
+  </article>
+  <article className='w3-card w3-margin w3-col m3 w3-border w3-border-black w3-amber w3-button w3-round-xlarge'>
+      <div className="w3-border w3-white w3-panel w3-border-black">Picture</div>
+      <div className='w3-black'>Title</div>
+      <div className='w3-grey'>Date</div>
+  </article>
+  </div></Theme>
+   </div>
+  )
 }
