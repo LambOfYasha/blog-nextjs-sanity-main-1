@@ -1,7 +1,8 @@
 import React from 'react'
+import { SanityClient, urlFor } from 'sanity';
 import Theme from "../components/Theme";
 
-export default function Home() {
+export default function Home(props) {
 
 
   return (
@@ -31,3 +32,28 @@ export default function Home() {
    </div>
   )
 }
+
+
+export const getServerSideProps = async () =>{
+    const query = `*[_type == "post" ] {
+        _id,
+        title,
+          coverImage,
+        slug,
+          date,
+          author -> {
+          name,
+          picture
+          }
+      }
+
+    `
+    const posts = await SanityClient.fetch(query)
+    return {
+        props: {
+            posts,
+            revalidate: 60,
+        },
+    }
+}
+
