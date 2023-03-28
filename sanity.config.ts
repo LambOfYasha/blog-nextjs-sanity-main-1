@@ -13,15 +13,17 @@ import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import authorType from 'schemas/author'
 import postType from 'schemas/post'
 import settingsType from 'schemas/settings'
+import { createClient, type ClientConfig } from '@sanity/client';
+
 
 const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'AntiBlasphemy Studio'
 
 export default defineConfig({
   basePath: '/studio',
-  projectId: '9k7z7kht',
-  dataset: 'production',
-  title: 'Next.js Blog with Sanity.io',
+  projectId,
+  dataset,
+  title,
   schema: {
     // If you want more content types, you can add them to this array
     types: [authorType, postType, settingsType],
@@ -47,3 +49,18 @@ export default defineConfig({
     visionTool({ defaultApiVersion: apiVersion }),
   ],
 })
+
+
+//API Data
+
+const config: ClientConfig ={
+  projectId,
+  dataset,
+  useCdn: false,
+  apiVersion: '2023-03-28'
+}
+
+const client = createClient(config)
+
+const data = await client.fetch<number>(`count(*)`)
+console.log(`number of documents: ${data}`)
