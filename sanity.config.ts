@@ -19,9 +19,9 @@ const title =
 
 export default defineConfig({
   basePath: '/studio',
-  projectId,
-  dataset,
-  title,
+  projectId: '9k7z7kht',
+  dataset: 'production',
+  title: 'Next.js Blog with Sanity.io',
   schema: {
     // If you want more content types, you can add them to this array
     types: [authorType, postType, settingsType],

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SanityClient, urlFor } from 'sanity';
+import { SanityClient } from 'sanity';
 import Theme from "../components/Theme";
 
 export default function Home(props) {
