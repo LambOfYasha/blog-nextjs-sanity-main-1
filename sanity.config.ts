@@ -7,10 +7,9 @@ import {_checkAuth} from '@sanity/preview-kit'
 
 export const config = {
   
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  projectId:"9k7z7kht",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   apiVersion: "2023-03-30",
-  
   useCdn: process.env.NODE_ENV === "production",
 }
 
