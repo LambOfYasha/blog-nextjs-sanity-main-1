@@ -1,5 +1,6 @@
 import React from 'react'
 import { sanityClient, urlFor } from 'sanity.config';
+import post from 'schemas/post';
 import Theme from "../components/Theme";
 import {Post} from "../typings"
 
