@@ -1,4 +1,5 @@
 import React from 'react'
+import { sanityClient } from 'sanity.config';
 import Theme from "../components/Theme";
 
 
@@ -48,7 +49,7 @@ export const getServerSideProps = async () =>{
       }
 
     `
-    const posts = await createClient.fetch(query)
+    const posts = await sanityClient.fetch(query)
     return {
         props: {
             posts,
