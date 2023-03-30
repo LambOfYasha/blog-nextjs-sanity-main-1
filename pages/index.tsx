@@ -1,10 +1,14 @@
 import React from 'react'
-import { sanityClient } from 'sanity.config';
+import { sanityClient, urlFor } from 'sanity.config';
 import Theme from "../components/Theme";
+import {Post} from "../typings"
 
+interface Props {
+    posts: [Post];
+}
 
-export default function Home(props) {
-
+export default function Home(props: Props) {
+    console.log(props)
 
   return (
     <div>
@@ -32,6 +36,7 @@ export default function Home(props) {
   </div></Theme>
    </div>
   )
+
 }
 
 
@@ -49,12 +54,13 @@ export const getServerSideProps = async () =>{
       }
 
     `
-    const posts = await sanityClient.fetch(query)
+ const posts = await sanityClient.fetch(query)
     return {
         props: {
             posts,
             revalidate: 60,
         },
-    }
+    }    
+
 }
 
