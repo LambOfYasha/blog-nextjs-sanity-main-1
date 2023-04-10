@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React from 'react'
-import { sanityClient, urlFor } from 'sanity.config';
 import Theme from "../components/Theme";
 import {Post} from "../typings"
 
@@ -25,34 +24,4 @@ export default function Home({posts}: Props) {
   )
 
 }
-
-
-export const getServerSideProps = async () =>{
-    const query = `*[_type == "post" ] {
-        _id,
-        title,
-          coverImage,
-        slug,
-          date,
-          author -> {
-          name,
-          picture
-          }
-      }
-    
-    `
-    const posts = await sanityClient.fetch(query)
-
-    return {
-        props: {
-            posts,
-            revalidate: 60,
-        },
-    }    
-
-}
-
-
-
-
 
