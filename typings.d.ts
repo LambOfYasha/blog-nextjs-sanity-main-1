@@ -1,6 +1,5 @@
 
 type Base = {
-
     _createdAt: string;
     _id: string;
     _rev: string;
@@ -62,4 +61,14 @@ interface Span {
 interface Category extends Base {
     description: string;
     title: string;
+}
+
+interface MainImage {
+    _type: "image";
+    asset: Reference;
+}
+
+interface Title {
+    _type: "string";
+    current: string;
 }
