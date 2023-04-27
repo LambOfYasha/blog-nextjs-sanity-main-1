@@ -1,10 +1,10 @@
 import React from 'react'
 import Dropdown from "../Dropdown"
 import {AbsLogo} from '../../styles/images'
-import Header from "../Header"
+import {Header} from "../Header"
 import Footer from "../Footer"
 import * as Navigation from '../../styles/styles'
-import Body from '../Body'
+import BlogBoxM from '../BlogBox'
 
 
 export default function Mobile(props) {
@@ -18,7 +18,9 @@ export default function Mobile(props) {
 <section className='w3-circle' style={{ 
       backgroundImage: `url(${AbsLogo})`, backgroundRepeat: 'no-repeat', backgroundSize:'cover', height:'250px' 
     }} >
-<div className='w3-display-container'><Body title="News">{props.children}</Body></div>
+<div className=''>
+  <Dropdown title="News" demo="NewsContentMobile" classType="w3-tiny w3-border w3-block  w3-button w3-amber ">{props.children}</Dropdown>
+</div>
 
 
 </section>

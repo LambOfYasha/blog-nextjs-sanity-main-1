@@ -11,7 +11,7 @@ return (
            {props.children}
         </Mobile>
 
-        <Tablet />
+        <Tablet title={props.title} >{props.children}</Tablet>
 
         <Desktop title={props.title} >
  {props.children}

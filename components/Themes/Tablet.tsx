@@ -1,41 +1,32 @@
 import React from 'react'
 import {ABSTabletBanner} from '../../styles/images'
-import * as NavTab from '../../styles/styles'
-import { BodyTab } from '../Body'
+import * as Navigation from '../../styles/styles'
+import BlogBox from '../BlogBox'
 import Footer from '../Footer'
-import Link from 'next/link'
+import {HeaderTab}  from '../Header'
 
-
-function Tablet() {
+export function Tablet(props) {
   return (
     <div className='w3-content w3-hide-small w3-hide-large w3-white'>
+ <section>
   <h1>AntiBlasphemy Studios</h1>
-     <button className={NavTab.RegisterButtonTab}>Get Started</button>
-    <button className={NavTab.MemberButtonTab}>Sign In</button>
-    <header  className={NavTab.NavBarTab} >
-    <button className={NavTab.HomeButtonTab}><Link href="/">Home</Link></button>
-    <button className={NavTab.HomeButtonTab}><Link href="/projects">Projects</Link></button>
-    <button className={NavTab.HomeButtonTab}><Link href="https://www.antiblasphemystudios.com">Blog</Link></button>
-    <button className={NavTab.HomeButtonTab}><Link href="/contact">Contact</Link></button>
-    <button className={NavTab.HomeButtonTab}><Link href="/about">About</Link></button>
-    <button className={NavTab.HomeButtonTab}><Link href="/members">Members</Link></button>
-    <button className={NavTab.HomeButtonTab}><Link href="/staff">Staff</Link></button>
-</header>
+     <button className={Navigation.RegisterButtonTab}>Get Started</button>
+    <button className={Navigation.MemberButtonTab}>Sign In</button>
+      <HeaderTab/>
+  </section>
 <section className='w3-black'>
-  <h2>News</h2>
+  <h2>{props.title}</h2>
   </section>
 <article className='w3-card-4 w3-opacity-min'>
 
 <div style={{ 
       backgroundImage: `url(${ABSTabletBanner})`, backgroundRepeat: 'no-repeat', backgroundSize:'cover', height:'450px' 
     }}>            
-<BodyTab title="News" />
-</div>
+{props.children}</div>
           </article>
               <section><Footer settings="w3-container w3-amber w3-center"></Footer></section>
 
     </div>
   )
 }
-
 export default Tablet

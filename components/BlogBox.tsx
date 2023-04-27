@@ -2,19 +2,16 @@ import React from 'react'
 
 function BlogBox(props) {
   return (
-    <div className={`${props.classType}`}>
-        <div>
-        <div className='w3-center w3-amber'>Title</div>
-        <div className='w3-left w3-padding w3-margin w3-black'>Avatar</div>
-        <div className='w3-padding'>
-        <div>Author</div>
-        <div>Date</div>
-        </div>
-        </div>
-        <div className='w3-padding w3-margin w3-center w3-white'>
-        {props.children}
-        </div></div>
+    <div className={`${props.classType}`} style={{margin:"auto", width: '50%'}}>
+ <article className='w3-card w3-margin w3-col m3 w3-border w3-border-black w3-amber w3-button w3-round-xlarge'>
+     <div className="w3-border w3-hide-small w3-white w3-panel w3-border-black"><img  alt="" /></div>
+     <div className='w3-black'>Title</div>
+     <div className='w3-grey'>Date</div>
+ </article></div>
   )
 }
+
+
+
 
 export default BlogBox
