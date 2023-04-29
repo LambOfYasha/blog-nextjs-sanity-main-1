@@ -1,35 +1,40 @@
 import * as Navigation from '../styles/styles'
 import Link from 'next/link'
 import NavLinks from '../data'
+import { Banner } from './Themes/Desktop'
 
 
 
 export function Header() {
     return (
-        <section>
             <header  className={Navigation.NavBar} style={{width:'75px'}}>
+                <button className={Navigation.RegisterButton}>Get Started</button>
+    <button className={Navigation.MemberButton}>Sign In</button>
             {NavLinks.map((nlinks) => {
     return (<button key={nlinks.id} className={Navigation.HomeButton}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})}
             </header>
-        </section>
+       
     )
 }
 
-export function HeaderTab (){
+export function HeaderTab (props){
     return (<header  className={Navigation.NavBarTab} >
+          <button className={Navigation.RegisterButtonTab}>Get Started</button>
+    <button className={Navigation.MemberButtonTab}>Sign In</button>
    {NavLinks.map((nlinks) => {
     return (<button key={nlinks.id} className={Navigation.HomeButtonTab}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})} 
+ {props.children}
 </header>)
 }
 
 
-export function HeaderDT (){
+export function HeaderDT (props){
     return(
         <header  className={Navigation.NavBarDT} >
 <button className={Navigation.RegisterButtonDT}>Get Started</button>
@@ -39,6 +44,7 @@ export function HeaderDT (){
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})} 
+<Banner />
 </header>
 )}
 

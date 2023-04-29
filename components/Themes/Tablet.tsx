@@ -10,8 +10,7 @@ export function Tablet(props) {
     <div className='w3-content w3-hide-small w3-hide-large w3-white'>
  <section>
   <h1>AntiBlasphemy Studios</h1>
-     <button className={Navigation.RegisterButtonTab}>Get Started</button>
-    <button className={Navigation.MemberButtonTab}>Sign In</button>
+   
       <HeaderTab/>
   </section>
 <section className='w3-black'>

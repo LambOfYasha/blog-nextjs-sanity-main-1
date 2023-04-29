@@ -8,6 +8,7 @@ type Base = {
 }
 
 interface Post extends Base {
+    [x: string]: TypedObject;
     title: string;
     author: {
         name: string;
