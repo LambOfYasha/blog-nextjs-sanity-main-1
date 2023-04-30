@@ -6,13 +6,13 @@
     },
     {
         id: 2,
-        href: "/project",
-        link: "Project",
+        href: "/projects",
+        link: "Projects",
     },
     {
         id: 3,
-        href: "/blog",
-        link: "Blog",
+        href: "/services",
+        link: "services",
     },
     {
         id: 4,
