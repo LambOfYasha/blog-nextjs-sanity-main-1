@@ -7,10 +7,20 @@ type Base = {
     _updatedAt: string;
 }
 
+interface Page extends Base {
+    [x: string]: TypedObject;
+    title: string;
+    mainImage: {
+        asset: {url: string};
+    };
+    slug: {current: string;};
+    body: [object];
+}
 interface Post extends Base {
     [x: string]: TypedObject;
     title: string;
     author: {
+        [x: string]: any;
         name: string;
         image: string;
     };

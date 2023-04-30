@@ -1,4 +1,3 @@
-
 import { previewData } from "next/headers"
 import { groq } from "next-sanity"
 import { client } from "../../lib/sanity.client"
@@ -7,6 +6,8 @@ import { LoadingIcon } from "../../styles/images"
 import Image from "next/image"
 import PreviewBlogList from '../../components/PreviewBlogList'
 import BlogBox from "../../components/BlogBox"
+import { Banner } from "../../components/Themes/Desktop"
+import PortablePost from "../../components/Modal"
 
 export const query = groq`
   *[_type=='post']{
@@ -31,7 +32,9 @@ if (previewData()){
 }
 
 const posts = await client.fetch(query)
-return<BlogBox posts={posts}  />
-}
+return<section>
+  <Banner />
+  <BlogBox posts={posts}  />
+</section>}
 
 

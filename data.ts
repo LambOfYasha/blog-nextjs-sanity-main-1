@@ -12,25 +12,36 @@
     {
         id: 3,
         href: "/services",
-        link: "services",
+        link: "Services",
     },
+ 
     {
         id: 4,
+        href: "/about",
+        link: "About",
+    }, 
+    
+    {
+        id: 5,
         href: "/contact",
         link: "Contact",
     },
-    {
-        id: 5,
-        href: "/about",
-        link: "About",
-    },
+   
+    
     {
         id: 6,
+        href: "/merch",
+        link: "Merch",
+    },
+
+
+    {
+        id: 7,
         href: "/member",
         link: "Members",
     },
     {
-        id: 7,
+        id: 8,
         href: "/staff",
         link: "Staff",
     }

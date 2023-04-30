@@ -8,8 +8,6 @@ import { Banner } from './Themes/Desktop'
 export function Header() {
     return (
             <header  className={Navigation.NavBar} style={{width:'75px'}}>
-                <button className={Navigation.RegisterButton}>Get Started</button>
-    <button className={Navigation.MemberButton}>Sign In</button>
             {NavLinks.map((nlinks) => {
     return (<button key={nlinks.id} className={Navigation.HomeButton}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
@@ -38,13 +36,15 @@ export function HeaderDT (props){
     return(
         <header  className={Navigation.NavBarDT} >
 <button className={Navigation.RegisterButtonDT}>Get Started</button>
-        <button className={Navigation.MemberButtonDT} >Login</button>
+        <button className={Navigation.MemberButtonDT} >Sign In</button>
         {NavLinks.map((nlinks) => {
     return (<button key={nlinks.id} className={Navigation.NavButtonDT}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})} 
-<Banner />
+         <h3 className='w3-bar-item w3-center'>AntiBlasphemy Studios</h3>
+
+{props.children}
 </header>
 )}
 

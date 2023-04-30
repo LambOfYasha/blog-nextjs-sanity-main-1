@@ -19,7 +19,7 @@ export function Tablet(props) {
 <article className='w3-card-4 w3-opacity-min'>
 
 <div style={{ 
-      backgroundImage: `url(${ABSTabletBanner})`, backgroundRepeat: 'no-repeat', backgroundSize:'cover', height:'450px' 
+      backgroundImage: `url(${ABSTabletBanner})`, backgroundRepeat: 'no-repeat', backgroundSize:'cover', height:'500px' 
     }}>            
 {props.children}</div>
           </article>

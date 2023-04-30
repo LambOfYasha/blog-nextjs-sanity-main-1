@@ -1,30 +1,25 @@
 import { groq } from "next-sanity"
-import {client} from '../../../../lib/sanity.client'
+import {client} from '../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
+import ModalFunctionality from "../styles/modalfunctionality"
 import Image from "next/image"
-import urlFor from "../../../../lib/urlFor"
+import urlFor from "../lib/urlFor"
 
 type Props = {
-    params: {
-        slug: string
-    }
-}
+    posts: Post[]
+  }
 
-async function Post({params: {slug}}: Props){
-
-    const query = groq`
-    *[_type=='post' && slug.current == $slug][0]
-    {
-        ...,
-        author->,
-        picture,
-        mainImage,
-        categories[]->
-    }`
-
-const post: Post = await client.fetch(query, {slug})
-
-   return <article>
+  function PortablePost({posts}: Props){
+    
+  return (
+    <div className="w3-container w3-hide-large">
+   {posts.map((post) => {
+    return (
+  <div id={`${post._id}`} className="w3-modal">
+    <div className="w3-modal-content">
+      <div className="w3-container">
+        <span onClick={ModalFunctionality} className="w3-button w3-display-topright">&times;</span>
+        <article>
     <section>
         <div className="w3-amber w3-container w3-center">{post.title}</div>
         <div className="w3-card-4 w3-cell w3-border w3-border-black w3-amber">
@@ -34,13 +29,22 @@ const post: Post = await client.fetch(query, {slug})
       day: "numeric",
       month: "long",
       year: "numeric",
-     })}</div>
+    })} 
+     </div>
         </div>
     </section>
     <section className="w3-margin w3-center">
     <Image className="w3-hide-small" width={700} height={350} src={urlFor(post.coverImage).url()} alt={post.author.name} />
         <PortableText value={post.content}></PortableText></section>
     </article> 
+      </div>
+    </div>
+  </div>
+  )
+})}
+  </div>
+ )
 }
 
-export default Post
+
+export default PortablePost

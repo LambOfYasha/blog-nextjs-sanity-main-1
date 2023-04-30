@@ -20,5 +20,5 @@ export var RegisterButtonTab="w3-right w3-border w3-border-black w3-small w3-bar
 export var NavBarDT="l1 w3-cell-row"
 export var HomeButtonDT="w3-left w3-border w3-border-black  w3-large w3-bar-item w3-button "
 export var NavButtonDT="w3-left w3-border w3-border-black w3-large w3-white  w3-button"
-export var MemberButtonDT="w3-right w3-border w3-border-black w3-large w3-bar-item w3-white w3-button "
+export var MemberButtonDT="w3-right w3-border w3-border-black w3-large w3-bar-item w3-black w3-button "
 export var RegisterButtonDT="w3-right w3-amber w3-border w3-border-black w3-large w3-bar-item w3-button"
