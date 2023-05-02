@@ -6,20 +6,20 @@
     },
     {
         id: 2,
+        href: "/about",
+        link: "About",
+    }, 
+
+    {
+        id: 3,
         href: "/projects",
         link: "Projects",
     },
     {
-        id: 3,
+        id: 4,
         href: "/services",
         link: "Services",
     },
- 
-    {
-        id: 4,
-        href: "/about",
-        link: "About",
-    }, 
     
     {
         id: 5,

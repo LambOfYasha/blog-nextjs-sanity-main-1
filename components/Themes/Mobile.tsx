@@ -18,7 +18,10 @@ export default function Mobile(props) {
       backgroundImage: `url(${AbsLogo})`, backgroundRepeat: 'no-repeat', backgroundSize:'cover', height:'250px' 
     }} >
 <div className=''>
-  <Dropdown title="News" demo="NewsContentMobile" classType="w3-tiny w3-border w3-block  w3-button w3-amber ">{props.children}</Dropdown>
+<article  className="w3-tiny w3-border w3-border-black w3-block w3-center w3-amber">
+  <h5>News</h5>
+</article>
+{props.children}
 </div>
 
 

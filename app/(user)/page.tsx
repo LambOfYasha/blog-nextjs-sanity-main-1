@@ -35,6 +35,7 @@ const posts = await client.fetch(query)
 return<section>
   <Banner />
   <BlogBox posts={posts}  />
+  <PortablePost posts={posts} />
 </section>}
 
 
