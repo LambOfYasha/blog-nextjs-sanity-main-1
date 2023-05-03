@@ -1,13 +1,14 @@
 import { groq } from "next-sanity"
 import {client} from '../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
-import Image from "next/image"
-import ClientSideRoute from "../../components/ClientSideRoute"
+// import Image from "next/image"
+// import urlFor from "../../lib/urlFor"
+
    const query = groq`
-    *[_type=='page']
+    *[_type=='page'][0]
     {
         ...,
-        mainImage,
+        coverImage,
     }`
     
 export default async function Page(){
