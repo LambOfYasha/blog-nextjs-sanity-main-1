@@ -13,7 +13,6 @@ interface Page extends Base {
     mainImage: {
         asset: {url: string};
     };
-    slug: {current: string;};
     body: [object];
 }
 interface Post extends Base {

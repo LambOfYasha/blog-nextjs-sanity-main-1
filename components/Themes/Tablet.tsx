@@ -1,7 +1,5 @@
 import React from 'react'
 import {ABSTabletBanner} from '../../styles/images'
-import * as Navigation from '../../styles/styles'
-import BlogBox from '../BlogBox'
 import Footer from '../Footer'
 import {HeaderTab}  from '../Header'
 
@@ -20,7 +18,11 @@ export function Tablet(props) {
 
 <div style={{ 
       backgroundImage: `url(${ABSTabletBanner})`, backgroundRepeat: 'no-repeat', backgroundSize:'cover', height:'500px' 
-    }}>            
+    }}> 
+    
+<article  className="w3-tiny w3-border w3-border-black w3-block w3-center w3-amber">
+  <h5>News</h5>
+</article>           
 {props.children}</div>
           </article>
               <section><Footer settings="w3-container w3-amber w3-center"></Footer></section>
