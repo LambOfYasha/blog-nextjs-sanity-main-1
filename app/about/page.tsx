@@ -1,6 +1,8 @@
 import { groq } from "next-sanity"
 import {client} from '../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
+import PageModal from "../../components/PageModal"
+
 // import Image from "next/image"
 // import urlFor from "../../lib/urlFor"
 
@@ -26,8 +28,7 @@ const page: Page = await client.fetch(query)
     <section className="w3-margin w3-center">
     {/* <Image className="w3-hide-small" width={700} height={350} src={urlFor(page.coverImage).url()} alt={post.author.name} /> */}
         <PortableText value={page.content}></PortableText></section>
-
-    </article> 
+</article> 
 )
 }
 

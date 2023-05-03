@@ -5,9 +5,10 @@ import Modal from 'react-modal';
 import Image from "next/image"
 import urlFor from "../lib/urlFor"
 
+
 type Props = {
-    posts: Post[]
-  }
+  posts: Post[]
+}
 
 
   function PortablePost({posts}: Props){

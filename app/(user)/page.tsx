@@ -1,8 +1,11 @@
+import React from "react"
 import { groq } from "next-sanity"
 import { client } from "../../lib/sanity.client"
 import BlogBox from "../../components/BlogBox"
 import { Banner } from "../../components/Themes/Desktop"
 import PortablePost from "../../components/Modal"
+import PageModal from "../../components/PageModal"
+import page from "../../schemas/page"
 export const query = groq`
   *[_type=='post']{
     ...,

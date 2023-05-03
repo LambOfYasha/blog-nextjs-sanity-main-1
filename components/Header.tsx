@@ -1,18 +1,20 @@
+import React from 'react'
 import * as Navigation from '../styles/styles'
 import Link from 'next/link'
 import NavLinks from '../data'
-import { Banner } from './Themes/Desktop'
 
 
 
 export function Header() {
+
     return (
             <header  className={Navigation.NavBar} style={{width:'75px'}}>
             {NavLinks.map((nlinks) => {
-    return (<button key={nlinks.id} className={Navigation.HomeButton}>
+    return (<button key={nlinks.id} className={Navigation.NavButton}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})}
+ 
             </header>
        
     )
@@ -26,7 +28,7 @@ export function HeaderTab (props){
     return (<button key={nlinks.id} className={Navigation.HomeButtonTab}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
- )})} 
+ )}).shift()} 
  {props.children}
 </header>)
 }

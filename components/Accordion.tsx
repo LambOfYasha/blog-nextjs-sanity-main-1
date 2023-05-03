@@ -16,7 +16,7 @@ function myFunction() {
     <div>    
    
     <button onClick={myFunction} className={props.classType}>
-    {props.title}</button>
+    {props.accName}</button>
     
     <div id={`${props.demo}`} className="w3-container w3-hide">
       {props.children}
