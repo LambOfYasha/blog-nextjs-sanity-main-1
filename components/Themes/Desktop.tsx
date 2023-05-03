@@ -9,11 +9,11 @@ export default function Desktop(props) {
     <div className='l1 w3-hide-small w3-hide-medium  w3-border w3-border-black'>
 
 <HeaderDT />
-<section className=''>
+<section >
  
 {props.children}
 </section>
-<Footer settings="w3-center"/>
+<Footer settings="w3-center w3-border w3-border-black w3-padding"/>
     </div>
   )
 }
