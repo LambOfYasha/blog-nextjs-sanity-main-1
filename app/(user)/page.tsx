@@ -2,7 +2,7 @@ import { groq } from "next-sanity"
 import { client } from "../../lib/sanity.client"
 import BlogBox from "../../components/BlogBox"
 import { Banner } from "../../components/Themes/Desktop"
-
+import PortablePost from "../../components/Modal"
 export const query = groq`
   *[_type=='post']{
     ...,
