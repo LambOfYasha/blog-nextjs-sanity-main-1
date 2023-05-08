@@ -30,7 +30,7 @@ export default async function Mobile(props) {
       backgroundImage: `url(${AbsLogo})`, backgroundRepeat: 'no-repeat', backgroundSize:'cover', height:'250px' 
     }} >
 <Accordion demo="News" accName="News" classType='w3-tiny w3-border w3-border-black w3-block w3-center w3-amber'>
-{props.children}
+
 </Accordion>
 <PageModal btnName="About" btnSetting="w3-tiny w3-border w3-border-black w3-block w3-center w3-amber"><PortableText value={page.content} /></PageModal>
 
