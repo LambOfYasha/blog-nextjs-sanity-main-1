@@ -30,7 +30,7 @@
     
     {
         id: 6,
-        href: "/merch",
+        href: "https://www.antiblasphemystudios.com",
         link: "Merch",
     },
 
