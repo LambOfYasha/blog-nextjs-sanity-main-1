@@ -15,6 +15,16 @@ interface Page extends Base {
     };
     body: [object];
 }
+
+interface Character extends Base {
+    [x: string]: TypedObject;
+    title: string;
+    mainImage: {
+        asset: {url: string};
+    };
+    body: [object];
+}
+
 interface Post extends Base {
     [x: string]: TypedObject;
     title: string;

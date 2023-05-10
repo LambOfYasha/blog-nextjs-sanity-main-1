@@ -1,5 +1,6 @@
 import { BookIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
+import category from './category'
 
 
 /**
@@ -57,7 +58,12 @@ export default defineType({
       },
     }),
     
-   
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{ type: category.name }],
+    }),
   ],
   preview: {
     select: {
