@@ -94,6 +94,14 @@ export default defineType({
       of: [{ type: 'block' }],
     }),
     defineField({
+      name: 'avi',
+      title: 'avatar',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'coverImage',
       title: 'Cover Image',
       type: 'image',

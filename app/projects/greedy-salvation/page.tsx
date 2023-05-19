@@ -6,10 +6,9 @@ import Image from "next/image"
 import urlFor from "../../../lib/urlFor"
 import ABSTabs from "../../../components/Tabs"
 import { TabPanel } from "react-tabs"
-// import Image from "next/image"
-// import urlFor from "../../lib/urlFor"
 
    const query = groq`
+   
     *[_type=='page'][4]
     {
         ...,
@@ -21,6 +20,7 @@ export default async function Page(){
  
 
 const page: Page = await client.fetch(query)
+const character: Character = await client.fetch("*[_type == 'character']{...,avi, mainImage}")
 
    return (
 
@@ -41,7 +41,9 @@ const page: Page = await client.fetch(query)
         <TabPanel>
             <PortableText value={page.content}></PortableText>
         </TabPanel>
-        <TabPanel>khklhkh</TabPanel>
+        <TabPanel>
+ 
+    </TabPanel>
     </ABSTabs>
     </section>
         
