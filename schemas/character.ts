@@ -28,6 +28,23 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'series',
+      title: 'Series',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+        isUnique: (value, context) => context.defaultIsUnique(value, context),
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'name',
       title: 'Name',
       type: 'string',

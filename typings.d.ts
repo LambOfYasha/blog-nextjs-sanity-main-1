@@ -19,9 +19,11 @@ interface Page extends Base {
 interface Character extends Base {
     [x: string]: TypedObject;
     title: string;
+    series: string;
     mainImage: {
         asset: {url: string};
     };
+    slug: {current: string;};
     body: [object];
 }
 

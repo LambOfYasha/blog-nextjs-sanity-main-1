@@ -6,6 +6,7 @@ import Image from "next/image"
 import urlFor from "../../../lib/urlFor"
 import ABSTabs from "../../../components/Tabs"
 import { TabPanel } from "react-tabs"
+import CharacterSheet from "../../../components/CharacterSheet"
 
    const query = groq`
    
@@ -42,7 +43,7 @@ const character: Character = await client.fetch("*[_type == 'character']{...,avi
             <PortableText value={page.content}></PortableText>
         </TabPanel>
         <TabPanel>
- 
+            <CharacterSheet character={character} ></CharacterSheet>
     </TabPanel>
     </ABSTabs>
     </section>
