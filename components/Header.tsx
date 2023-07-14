@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Navigation from '../styles/styles'
 import Link from 'next/link'
-import NavLinks from '../data'
+import NavLinks from '../data/data'
 
 
 

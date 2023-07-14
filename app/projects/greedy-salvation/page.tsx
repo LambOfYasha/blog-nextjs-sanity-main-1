@@ -4,13 +4,13 @@ import {client} from '../../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import urlFor from "../../../lib/urlFor"
-import ABSTabs from "../../../components/Tabs"
-import { TabPanel } from "react-tabs"
-import CharacterSheet from "../../../components/CharacterSheet"
+import GreedySalvationLinks from "../../../data/Greedy-Salvation-Links"
+import Link from "next/link"
+
 
    const query = groq`
    
-    *[_type=='page'][4]
+    *[_type=='page'][5]
     {
         ...,
         coverImage,
@@ -31,21 +31,16 @@ const character: Character = await client.fetch("*[_type == 'character']{...,avi
     </section>
     <section className="w3-margin w3-center">
     <Image className="w3-hide-small" width={300} height={350} src={urlFor(page.coverImage).url()} alt={page.title} />
-    <ABSTabs 
-    title0="Home" 
-    title1="Characters"
-    title2="Raw Chapters"
-    title3="Light Novel"
-    title4="Video Novel"
-    title5="Gallery"
-    >
-        <TabPanel>
+    <div >
+        {GreedySalvationLinks.map((gslink => {
+            return (<div className="w3-amber w3-bar" key={gslink.id}>
+                <Link href={gslink.href}><button className="w3-button w3-bar-item w3-row">{gslink.link}</button></Link>
+                </div>
+            )
+        }))}
+    </div>
             <PortableText value={page.content}></PortableText>
-        </TabPanel>
-        <TabPanel>
-            <CharacterSheet character={character} ></CharacterSheet>
-    </TabPanel>
-    </ABSTabs>
+        
     </section>
         
 </article> 
