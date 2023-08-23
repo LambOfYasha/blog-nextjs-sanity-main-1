@@ -10,7 +10,7 @@ import Link from "next/link"
 
    const query = groq`
    
-    *[_type=='page'][5]
+    *[_type=='page'][6]
     {
         ...,
         coverImage,

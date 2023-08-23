@@ -27,7 +27,7 @@ const character: Character = await client.fetch(query)
    {character.map(chrInfo => {
     return (
        <div className="w3-bar" key={chrInfo._id}>
-        <div className="w3-bar-item w3-right"><p>{chrInfo.title}</p> <Image className="w3-hide-small w3-circle w3-image w3-border w3-border-black" width={100} height={300} src={urlFor(chrInfo.avi).url()} alt={chrInfo.title} /></div>
+        <div className="w3-bar-item w3-right"><p>{chrInfo.title}</p> <Image className="w3-hide-small w3-circle w3-image w3-border w3-border-black" width={100} height={200} src={urlFor(chrInfo.avi).url()} alt={chrInfo.title} /></div>
        
         </div>)
    }) }
