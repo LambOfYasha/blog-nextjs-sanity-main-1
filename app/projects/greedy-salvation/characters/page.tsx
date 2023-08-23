@@ -3,6 +3,8 @@ import { groq } from "next-sanity"
 import {client} from '../../../../lib/sanity.client'
 import Image from "next/image"
 import urlFor from "../../../../lib/urlFor"
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { PortableText } from "@portabletext/react"
 
 
 
@@ -24,13 +26,25 @@ const character: Character = await client.fetch(query)
 
 <article className="w3-hide-small w3-center">
     <h4 className="w3-amber">Greedy Salvation - Characters</h4>
-   {character.map(chrInfo => {
-    return (
-       <div className="w3-bar" key={chrInfo._id}>
-        <div className="w3-bar-item w3-right"><p>{chrInfo.title}</p> <Image className="w3-hide-small w3-circle w3-image w3-border w3-border-black" width={100} height={200} src={urlFor(chrInfo.avi).url()} alt={chrInfo.title} /></div>
+       <div className="w3-bar">
+         <Tabs variant='enclosed'>
+  <TabList>
+   {character.map((chrInfo, index) => (
+          <Tab key={index} className="w3-amber"> <Image className="w3-hide-small w3-circle w3-image w3-border w3-border-black" width={100} height={200} src={urlFor(chrInfo.avi).url()} alt={chrInfo.title} /></Tab>
+   ))}
+  </TabList>
+  <TabPanels>
+  {character.map((chrInfo, index) => (
+    <TabPanel key={index}>
+           
+            <Image className="w3-hide-small w3-image" width={1200} height={1000} src={urlFor(chrInfo.coverImage).url()} alt={chrInfo.title} />
+           
+    </TabPanel>
+     ))}
+  </TabPanels>
+</Tabs>
        
-        </div>)
-   }) }
+        </div>
         
 </article> 
 )
