@@ -2,6 +2,7 @@
 import { groq } from "next-sanity"
 import {client} from '../../../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
+import GreedySalvationMenu from "../../../../components/GreedySalvationMenu"
 
 // import Image from "next/image"
 // import urlFor from "../../lib/urlFor"
@@ -24,6 +25,7 @@ const page: Page = await client.fetch(query)
    <article className="w3-hide-small w3-center">
     <section>
         <div className="w3-amber w3-container w3-center">{page.title}</div>
+        <GreedySalvationMenu/>
     </section>
     <section className="w3-margin w3-center">
     {/* <Image className="w3-hide-small" width={700} height={350} src={urlFor(page.coverImage).url()} alt={post.author.name} /> */}

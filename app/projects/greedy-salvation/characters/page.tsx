@@ -4,7 +4,7 @@ import {client} from '../../../../lib/sanity.client'
 import Image from "next/image"
 import urlFor from "../../../../lib/urlFor"
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import { PortableText } from "@portabletext/react"
+import GreedySalvationMenu from "../../../../components/GreedySalvationMenu"
 
 
 
@@ -26,6 +26,7 @@ const character: Character = await client.fetch(query)
 
 <article className="w3-hide-small w3-center">
     <h4 className="w3-amber">Greedy Salvation - Characters</h4>
+    <GreedySalvationMenu/>
        <div className="w3-bar">
          <Tabs variant='enclosed'>
   <TabList>
