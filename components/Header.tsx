@@ -6,7 +6,6 @@ import {getServerSession} from 'next-auth'
 import { authConfig } from '../lib/auth'
 
 
-
 export function Header() {
 
     return (
@@ -36,17 +35,14 @@ export function HeaderTab (props){
 }
 
 
-export async function HeaderDT (props){
+export function HeaderDT (props){
 
-    const session = await getServerSession(authConfig)
 
     return (<header  className={Navigation.NavBarDT} >
 
 <button className={Navigation.RegisterButtonDT}>Get Started</button>
         <button className={Navigation.MemberButtonDT} >Sign In</button>
-{/* {session ?
-        <button className={Navigation.MemberButtonDT} >Sign Out</button>
-:null} */}
+
         {NavLinks.map((nlinks) => {
     return (<button key={nlinks.id} className={Navigation.NavButtonDT}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>

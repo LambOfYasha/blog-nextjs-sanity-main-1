@@ -35,11 +35,11 @@
     },
 
 
-    {
-        id: 7,
-        href: "/member",
-        link: "Members",
-    },
+    // {
+    //     id: 7,
+    //     href: "/member",
+    //     link: "Members",
+    // },
     {
         id: 8,
         href: "/staff",

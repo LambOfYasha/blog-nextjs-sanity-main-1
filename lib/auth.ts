@@ -6,6 +6,7 @@ import GoogleProvider from "next-auth/providers/google"
 
 import prisma from "./prisma"
 import { User } from "sanity"
+import { NextAuthOptions } from "next-auth"
 
 export const authConfig: NextAuthOptions = {
     providers: [
@@ -34,7 +35,7 @@ export const authConfig: NextAuthOptions = {
                 }
 
                 return null
-            }
+            },
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,

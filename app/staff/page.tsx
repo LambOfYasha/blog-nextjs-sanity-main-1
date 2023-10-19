@@ -43,7 +43,7 @@ const page: Page = await client.fetch(query)
   
   return (<>
       
-     <Image key={stff.id} className="w3-hide-small  w3-circle w3-border w3-border-black" width={125} height={130} src={urlFor(stff.picture).url()} alt={stff.name} /> 
+     <Image key={stff.id} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
        
         
        
@@ -51,6 +51,7 @@ const page: Page = await client.fetch(query)
             <li>Name: {stff.name}</li> 
             <li>Alias: {stff.alias}</li>
             <li>Position: {stff.position}</li>
+            <li>Portfolio: <PortableText value={stff.content}></PortableText></li>
         </div> </>
          )})}
 </Center>
