@@ -1,3 +1,5 @@
+import { HeaderDT } from '../components/Header'
+import Providers from '../components/Providers'
 import '../styles/w3css.css'
 
 export const metadata = {
@@ -12,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          <HeaderDT/>
+          {children}</Providers></body>
     </html>
   )
 }

@@ -1,14 +1,13 @@
-import {useSession} from "next-auth/react"
-import {redirect} from "next/navigation"
-
+import GoogleProvider from 'next-auth/providers/google'
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { PrismaClient } from "@prisma/client";
 import Credentials from "next-auth/providers/credentials"
-import GoogleProvider from "next-auth/providers/google"
-
-import prisma from "./prisma"
 import { User } from "sanity"
 import { NextAuthOptions } from "next-auth"
 
+const prisma = new PrismaClient()
 export const authConfig: NextAuthOptions = {
+    adapter: PrismaAdapter(prisma),
     providers: [
         Credentials({
             name: "ABStudios",
@@ -37,9 +36,11 @@ export const authConfig: NextAuthOptions = {
                 return null
             },
         }),
-        GoogleProvider({
+        GoogleProvider(
+        {
             clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
-        })
-    ],
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        
+        }
+    )],
 }

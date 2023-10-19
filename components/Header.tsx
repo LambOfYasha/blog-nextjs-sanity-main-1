@@ -4,6 +4,7 @@ import Link from 'next/link'
 import NavLinks from '../data/data'
 import {getServerSession} from 'next-auth'
 import { authConfig } from '../lib/auth'
+import SignInButton from './SignInButton'
 
 
 export function Header() {
@@ -40,9 +41,7 @@ export function HeaderDT (props){
 
     return (<header  className={Navigation.NavBarDT} >
 
-<button className={Navigation.RegisterButtonDT}>Get Started</button>
-        <button className={Navigation.MemberButtonDT} >Sign In</button>
-
+<SignInButton/>
         {NavLinks.map((nlinks) => {
     return (<button key={nlinks.id} className={Navigation.NavButtonDT}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
