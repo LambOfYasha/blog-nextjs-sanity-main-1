@@ -1,18 +1,25 @@
 import {NextAuthOptions, User, getServerSession} from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google'
-import bcrypt from 'bcrypt'
+import bcrypt, { compare } from 'bcrypt'
 import { db } from './db';
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials"
 
 
 
-export const authConfig: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
     adapter: PrismaAdapter(db),
+    pages: {
+        signIn: '/sign-in'
+    },
     providers: [
         CredentialsProvider({
             name: "Sign In",
             credentials: {
+                username: {
+                    label: "Username",
+                    type: "username"
+                },
                 email: {
                     label: "Email",
                     type: "email",
@@ -24,12 +31,9 @@ export const authConfig: NextAuthOptions = {
                 },
             },
                  async authorize(credentials){
-                    if(!credentials || !credentials.email || credentials.password)
+                    if(!credentials?.email || !credentials?.password){
                     return null
-
-                    const dbUser = await db.user.findFirst({
-                        where: {email: credentials.email}
-                    })
+                 }
 
                     const existingUser = await db.user.findUnique({
                         where: {email: credentials?.email}
@@ -38,7 +42,17 @@ export const authConfig: NextAuthOptions = {
                         return null
                     }
                     const passwordMatch = await compare(credentials.password, existingUser.password)
-                 }, 
+                    if(!passwordMatch){
+                        return null
+                    }
+
+                    return {
+                      id: existingUser.id,
+                      username: existingUser.username,
+                      email:  existingUser.email
+                    }
+ 
+                }, 
             }),
             GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
