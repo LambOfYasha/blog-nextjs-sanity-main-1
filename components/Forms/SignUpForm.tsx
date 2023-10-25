@@ -12,19 +12,25 @@ import {
 } from "@chakra-ui/react";
 import * as z from 'zod'
 import {useRouter} from 'next/navigation'
-import router from "next/router";
-import {zodResolver} from '@hookform/resolvers/zod'
+
+
+const FormSchema = z
+.object({
+  username: z.string().min(1, 'Username is required').max(100),
+    email: z.string().min(1, 'Email is required').email('Invalid email'),
+    password: z
+    .string()
+    .min(1, 'Password is required')
+    .min(8, 'Password must have more than 8 characters'),
+    confirmPassword: z.string().min(1, 'Password confirmation is required.')
+})
+.refine((data) => data.password === data.confirmPassword, {
+  path: ['confirmPassword'],
+  message: 'Password do not match.'
+})
 
 const SignUpForm = () => {
-    const form = useForm<z.infer<typeof FormSchema>>({
-        resolver: zodResolver(FormSchema),
-        defaultValues: {
-            username: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-        },
-    })
+const router = useRouter()
 
 
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
@@ -48,20 +54,30 @@ const SignUpForm = () => {
         }
     }
 
+const validatePassword = (values) => {
+  let error = " "
+  const passwordRegex = /(?=.*[8-9])/
+  if (!values){
+    error = "*Required"
+  } else if (values.length < 8) {
+    error = "*Password Must be 8 characters long."
+  } else if (!passwordRegex.test(values)) {
+    error = "*Invalid Password.  Must contain one number."
+  }
+  return error
+}
+   
+const validateConfirmPassword = (pass: any, value: any) => {
 
-    const FormSchema = z
-.object({
-    username: z.string().min(1, 'Username is required').max(100),
-    email: z.string().min(1, 'Email is required').email('Invalid email'),
-    password: z
-    .string()
-    .min(1, 'Password is required')
-    .min(8, 'Password must have more than 8 characters'),
-    confrimPassword: z.string().min(1, 'Password confirmation is required'),
-})
-.refine(data) => data.password === dataset.confirmPassword, {
-    path: ['confirmPassword'],
-    message: 'Password does not match',
+  let error = " "
+  if(pass && value) {
+    if(pass !== value) {
+      error = "Password not matched."
+    }
+  }
+  
+  return error
+
 }
 
 
@@ -69,15 +85,13 @@ const SignUpForm = () => {
     <Flex bg="gray.100" align="center" justify="center" h="100vh">
       <Box bg="white" p={6} rounded="md" w={64}>
         <Formik
-          initialValues={{
-            username: "",
-            email: "",
-            password: "",
-          }}
-          onSubmit={(values) => {
-            alert(JSON.stringify(values, null, 2));
-          }}
-        >
+            initialValues={{
+              username: '',
+              email: '',
+              password: '',
+              confirmPassword: ''
+            }}
+            onSubmit={onSubmit}>
           {({ handleSubmit, errors, touched }) => (
             <form onSubmit={handleSubmit}>
               <VStack spacing={4} align="flex-start">
@@ -109,15 +123,18 @@ const SignUpForm = () => {
                     name="password"
                     type="password"
                     variant="filled"
-                    validate={(value: string | any[]) => {
-                      let error;
-
-                      if (value.length < 8) {
-                        error = "Password must contain at least 6 characters";
-                      }
-
-                      return error;
-                    }}
+                    validate={(validatePassword)}
+                  />
+                  </FormControl>
+                  <FormControl>
+                  <FormLabel htmlFor="password">Confirm Password</FormLabel>
+                  <Field
+                    as={Input}
+                    id="confirmpassword"
+                    name="confirmpassword"
+                    type="password"
+                    variant="filled"
+                    validate={(validateConfirmPassword)}
                   />
                   </FormControl>
                 <Button type="submit" colorScheme="purple" width="full">
@@ -130,4 +147,11 @@ const SignUpForm = () => {
       </Box>
     </Flex>
   );
+
+                  }
+
+function useForm<T>(arg0: { resolver: any; defaultValues: { username: string; email: string; password: string; confirmPassword: string; }; }) {
+  throw new Error("Function not implemented.");
 }
+
+export default SignUpForm
