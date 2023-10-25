@@ -2,8 +2,7 @@ import React from 'react'
 import * as Navigation from '../styles/styles'
 import Link from 'next/link'
 import NavLinks from '../data/data'
-import {getServerSession} from 'next-auth'
-import { authConfig } from '../lib/auth'
+
 import SignInButton from './SignInButton'
 
 

@@ -1,9 +1,9 @@
-import {NextAuthOptions, User, getServerSession} from 'next-auth';
+import {NextAuthOptions} from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google'
-import bcrypt, { compare } from 'bcrypt'
 import { db } from './db';
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials"
+import { compare } from 'bcrypt';
 
 
 
@@ -47,7 +47,7 @@ export const authOptions: NextAuthOptions = {
                     }
 
                     return {
-                      id: existingUser.id,
+                      id: existingUser.id + '',
                       username: existingUser.username,
                       email:  existingUser.email
                     }
