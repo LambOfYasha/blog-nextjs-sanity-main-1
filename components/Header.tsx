@@ -40,7 +40,7 @@ export function HeaderDT (props){
 
     return (<header  className={Navigation.NavBarDT} >
 
-<SignInButton/>
+{/* <SignInButton/> */}
         {NavLinks.map((nlinks) => {
     return (<button key={nlinks.id} className={Navigation.NavButtonDT}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>

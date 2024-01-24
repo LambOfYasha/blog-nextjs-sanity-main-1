@@ -26,18 +26,19 @@ const character: Character = await client.fetch("*[_type == 'character']{...,avi
 
    return (
 
-   <article className="w3-hide-small w3-center">
-    <section>
-        <div className="w3-amber w3-container w3-center">{page.title}</div>
+   <article className="w3-hide-small">
+    <section className="w3-center">
+        <div className="w3-amber w3-container">{page.title}</div>
         <GreedySalvationMenu/>
     </section>
-    <section className="w3-margin w3-center">
-    <Image className="w3-hide-small" width={300} height={350} src={urlFor(page.coverImage).url()} alt={page.title} />
-    
-            <PortableText value={page.content}></PortableText>
-        
+
+    <section className="w3-center">
+        <article className="w3-container w3-center"><Image className="w3-hide-small" width={300} height={350} src={urlFor(page.coverImage).url()} alt={page.title} /></article>
+           <article className="w3-container w3-amber w3-cell w3-left-align"><PortableText value={page.content}></PortableText></article> 
     </section>
-        
+       <section className="w3-container"><b>Synopsis:</b>
+            <p>{page.excerpt}</p></section>
+
 </article> 
 )
 }
