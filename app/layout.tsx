@@ -1,6 +1,7 @@
 import { HeaderDT } from '../components/Header'
 import Providers from '../components/Providers'
 import '../styles/w3css.css'
+import '../styles/globals.css'
 
 export const metadata = {
   title: 'AB Studios',
