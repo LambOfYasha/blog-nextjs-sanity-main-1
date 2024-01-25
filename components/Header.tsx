@@ -21,7 +21,7 @@ export function Header() {
     )
 }
 
-export function HeaderTab (props){
+export function HeaderTab (props: { children: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined }){
     return (<header  className={Navigation.NavBarTab} >
           <button className={Navigation.RegisterButtonTab}>Get Started</button>
     <button className={Navigation.MemberButtonTab}>Sign In</button>
@@ -35,7 +35,7 @@ export function HeaderTab (props){
 }
 
 
-export function HeaderDT (props){
+export function HeaderDT (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined }){
 
 
     return (<header className={Navigation.NavBarDT} >

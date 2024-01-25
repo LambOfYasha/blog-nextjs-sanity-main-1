@@ -14,11 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html  lang="en">
-      <body style={{minHeight:"100vh"}}>
+      <body className='w3-padding-16' style={{minHeight:"100vh"}}>
         <Providers>
           <HeaderDT/>
           {children}</Providers></body>
-          <Footer settings="w3-center w3-border w3-border-black" />
+          <Footer settings="w3-center w3-white w3-border w3-border-black" />
     </html>
   )
 }
