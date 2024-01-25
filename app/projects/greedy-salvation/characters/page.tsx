@@ -6,6 +6,7 @@ import urlFor from "../../../../lib/urlFor"
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import GreedySalvationMenu from "../../../../components/GreedySalvationMenu"
 import { Key } from "react"
+import { HeaderTitleBar } from "../../../../styles/styles"
 
 
 
@@ -26,7 +27,7 @@ const character: Character = await client.fetch(query)
    return (
 
 <article className="w3-hide-small w3-center">
-    <h4 className="w3-amber">Greedy Salvation - Characters</h4>
+    <h4 className={HeaderTitleBar}>Greedy Salvation - Characters</h4>
     <GreedySalvationMenu/>
        <div className="w3-bar">
          <Tabs variant='enclosed'>

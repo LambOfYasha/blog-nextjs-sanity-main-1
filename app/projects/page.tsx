@@ -1,8 +1,9 @@
 import { groq } from "next-sanity"
 import {client} from '../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
-
-// import Image from "next/image"
+import { GreedySalvationBanner } from "../../styles/images"
+import Image from "next/image"
+import { HeaderTitleBar } from "../../styles/styles"
 // import urlFor from "../../lib/urlFor"
 
    const query = groq`
@@ -22,12 +23,15 @@ const page: Page = await client.fetch(query)
 
    <article className="w3-hide-small w3-center">
     <section>
-        <div className="w3-amber w3-container w3-center">{page.title}</div>
+        <div className={HeaderTitleBar}>{page.title}</div>
     </section>
     <section className="w3-margin w3-center">
-    {/* <Image className="w3-hide-small" width={700} height={350} src={urlFor(page.coverImage).url()} alt={post.author.name} /> */}
     {page.excerpt}
-        <PortableText value={page.content}></PortableText></section>
+        <PortableText value={page.content}></PortableText></section> 
+    
+    
+    <Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
+
 </article> 
 )
 }

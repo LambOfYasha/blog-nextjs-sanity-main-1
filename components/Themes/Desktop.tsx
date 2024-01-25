@@ -6,7 +6,7 @@ import { HeaderDT } from '../Header'
 
 export default function Desktop(props) {
   return (
-    <div className='l1 w3-hide-small w3-hide-medium  w3-border w3-border-black'>
+    <div className='l1 w3-hide-small w3-hide-medium '>
 
 
 <section >

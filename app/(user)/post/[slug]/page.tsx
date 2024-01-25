@@ -3,6 +3,7 @@ import {client} from '../../../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import urlFor from "../../../../lib/urlFor"
+import { HeaderTitleBar } from "../../../../styles/styles"
 
 type Props = {
     params: {
@@ -26,7 +27,7 @@ const post: Post = await client.fetch(query, {slug})
 
    return <article className="w3-hide-small w3-hide-medium">
     <section>
-        <div className="w3-amber w3-container w3-center">{post.title}</div>
+        <div className={HeaderTitleBar}>{post.title}</div>
         <div className="w3-card-4 w3-cell w3-border w3-border-black w3-amber">
         <div className="w3-white"><Image className="w3-circle w3-border w3-border-black" width={90} height={80} src={urlFor(post.author.picture).url()} alt={post.author.name} /></div>
         <div className="w3-black">By: {post.author.name}</div>

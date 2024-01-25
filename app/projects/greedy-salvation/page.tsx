@@ -7,6 +7,7 @@ import urlFor from "../../../lib/urlFor"
 import GreedySalvationLinks from "../../../data/Greedy-Salvation-Links"
 import Link from "next/link"
 import GreedySalvationMenu from "../../../components/GreedySalvationMenu"
+import { HeaderTitleBar } from "../../../styles/styles"
 
 
    const query = groq`
@@ -28,7 +29,7 @@ const character: Character = await client.fetch("*[_type == 'character']{...,avi
 
    <article className="w3-hide-small">
     <section className="w3-center">
-        <div className="w3-amber w3-container">{page.title}</div>
+        <div className={HeaderTitleBar}>{page.title}</div>
         <GreedySalvationMenu/>
     </section>
 
