@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react"
 import { GreedySalvationBanner } from "../../styles/images"
 import Image from "next/image"
 import { HeaderTitleBar } from "../../styles/styles"
+import Link from "next/link"
 // import urlFor from "../../lib/urlFor"
 
    const query = groq`
@@ -30,8 +31,8 @@ const page: Page = await client.fetch(query)
         <PortableText value={page.content}></PortableText></section> 
     
     
-    <Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
-
+    <Link href={"http://localhost:3000/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
+</Link>
 </article> 
 )
 }
