@@ -38,7 +38,7 @@ export function HeaderTab (props){
 export function HeaderDT (props){
 
 
-    return (<header  className={Navigation.NavBarDT} >
+    return (<header className={Navigation.NavBarDT} >
 
 {/* <SignInButton/> */}
         {NavLinks.map((nlinks) => {

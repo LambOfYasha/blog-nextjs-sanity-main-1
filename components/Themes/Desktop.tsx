@@ -13,7 +13,6 @@ export default function Desktop(props) {
  
 {props.children}
 </section>
-<Footer settings="w3-center w3-border w3-border-black"/>
     </div>
   )
 }
