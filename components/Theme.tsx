@@ -9,11 +9,11 @@ function Theme(props){
 
 return (
     <div>
-        <Mobile title={props.title}>
+        {/* <Mobile title={props.title}>
            {props.children}
-        </Mobile>
+        </Mobile> */}
 
-        <Tablet title={props.title} >{props.children}</Tablet>
+        {/* <Tablet title={props.title} >{props.children}</Tablet> */}
 
         <Desktop title={props.title} >
  {props.children}

@@ -2,8 +2,9 @@ import React from 'react'
 import * as Navigation from '../styles/styles'
 import Link from 'next/link'
 import NavLinks from '../data/data'
-
+import Image from 'next/image'
 import SignInButton from './SignInButton'
+import { AbsLogo } from '../styles/images'
 
 
 export function Header() {
@@ -38,7 +39,9 @@ export function HeaderTab (props: { children: string | number | boolean | React.
 export function HeaderDT (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined }){
 
 
-    return (<header className={Navigation.NavBarDT} >
+    return (<>
+    {/* <Image src={AbsLogo} className='w3-image w3-hide-large w3-hide-medium' alt="ABSBanner" width="300" height="250" /> */}
+<header className={Navigation.NavBarDT} >
 
 {/* <SignInButton/> */}
         {NavLinks.map((nlinks) => {
@@ -46,10 +49,15 @@ export function HeaderDT (props: { children: string | number | boolean | React.R
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})} 
-         <h3 className='w3-bar-item w3-center'>AntiBlasphemy Studios</h3>
+ {/* {NavLinks.map((nlinks) => {
+    return (<button key={nlinks.id} className={Navigation.NavButtonMobile}>
+        <Link  href={nlinks.href}>{nlinks.link}</Link>
+    </button>
+ )})}  */}
+         <h3 className='w3-bar-item w3-hide-small w3-center'>AntiBlasphemy Studios</h3>
 
 {props.children}
-</header>)
+</header></>)
 }
 
 export default [Header, HeaderDT, HeaderTab]
