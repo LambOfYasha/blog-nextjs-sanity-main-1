@@ -24,7 +24,7 @@ export default async function Page(){
 
    return (
 
-<article className=" w3-center">
+<article className="w3-center">
     <h4 className={HeaderTitleBarMobile}>{page[1].title}</h4>
     <PortableText value={page[1].content} ></PortableText>
 </article> 

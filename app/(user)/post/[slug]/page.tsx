@@ -25,7 +25,7 @@ async function Post({params: {slug}}: Props){
 
 const post: Post = await client.fetch(query, {slug})
 
-   return <article className="w3-hide-small w3-hide-medium">
+   return <article>
     <section>
         <div className={HeaderTitleBar}>{post.title}</div>
         <div className="w3-card-4 w3-cell w3-border w3-border-black w3-amber">
@@ -39,7 +39,7 @@ const post: Post = await client.fetch(query, {slug})
         </div>
     </section>
     <section className="w3-margin w3-center">
-    <Image className="w3-hide-small" width={700} height={350} src={urlFor(post.coverImage).url()} alt={post.author.name} />
+    <Image className="w3-image" width={700} height={350} src={urlFor(post.coverImage).url()} alt={post.author.name} />
         <PortableText value={post.content}></PortableText></section>
 
     </article> 

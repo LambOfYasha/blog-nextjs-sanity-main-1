@@ -19,7 +19,7 @@ export default function Desktop(props) {
 
 export function Banner (){
 return(<section className=''>
-<Image src={ABSDesktopBanner} className='w3-image w3-hide-small w3-border-top w3-border-black' alt="ABSBanner" width="2150" height="250" />
+<Image src={ABSDesktopBanner} className='w3-image w3-hide-small w3-border-top w3-border-black' alt="ABSBanner" width="2560" height="250" />
 <h4 className='w3-center w3-hide-small w3-hide-medium w3-black'>#CreativityInTheNameOfChrist</h4>
 </section>)
 }

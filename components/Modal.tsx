@@ -36,13 +36,15 @@ function closeModal(){ setIsOpen(false)}
 
     return (  
         
-    <div key={post._id}>
-<button id="root" onClick={openModal}
+    <div key={post._id} style={{overflow: 'hidden'}}>
+      
+<button id="root" onClick={openModal} 
 className="w3-button w3-margin w3-black w3-opacity-min w3-tiny">{new Date(post._createdAt).toLocaleDateString("en-US", {
   day: "numeric",
   month: "long",
   year: "numeric",
 })} | {post.title}</button>
+  
   <Modal
    id={`${post._id}`}
    isOpen={modalIsOpen}

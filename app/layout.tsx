@@ -17,8 +17,9 @@ export default function RootLayout({
       <body className='w3-padding-16' style={{minHeight:"100vh"}}>
         <Providers>
           <HeaderDT children={undefined}/>
-          {children}</Providers></body>
+          {children}</Providers>
           <Footer settings="w3-center w3-white w3-border w3-border-black" />
+          </body>
     </html>
   )
 }
