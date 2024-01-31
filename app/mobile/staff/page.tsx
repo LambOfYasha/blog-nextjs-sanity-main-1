@@ -38,7 +38,7 @@ export default async function Page(){
     <PortableText value={page[3].content} ></PortableText>
 
     <Center className="w3-card-4 w3-amber w3-bar">
-  {staff.map((staff) => {
+  {staff.map((staff: { id: Key | null | undefined; picture: any; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | null | undefined; alias: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; position: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; content: any }) => {
   
   return (<div>
       

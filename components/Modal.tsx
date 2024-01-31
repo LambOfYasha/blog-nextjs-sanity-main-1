@@ -57,7 +57,7 @@ className="w3-button w3-margin w3-black w3-opacity-min w3-tiny">{new Date(post._
         <div className="w3-card-4 w3-cell w3-border w3-border-black w3-amber">
         <div className="w3-white"><Image className="w3-circle w3-border w3-border-black" width={90} height={80} src={urlFor(post.author.picture).url()} alt={post.author.name} /></div>
         <div className="w3-black">By: {post.author.name}</div>
-        <div className="w3-grey">{new Date(post._createdAt).toLocaleDateString("en-US", {
+        <div className="w3-amber">{new Date(post._createdAt).toLocaleDateString("en-US", {
       day: "numeric",
       month: "long",
       year: "numeric",
