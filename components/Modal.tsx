@@ -67,7 +67,7 @@ className="w3-button w3-margin w3-black w3-opacity-min w3-tiny">{new Date(post._
     </section>
     <section className="w3-margin w3-center">
     <Image className="w3-hide-small" width={700} height={350} src={urlFor(post.coverImage).url()} alt={post.author.name} />
-        <PortableText value={post.content}></PortableText></section>
+        <PortableText value={post.content} ></PortableText></section>
     </article> 
       </div>
     </div>
@@ -78,5 +78,10 @@ className="w3-button w3-margin w3-black w3-opacity-min w3-tiny">{new Date(post._
  )
 }
 
+// const components = {
+//   block: {
+//   p: ({children}) => <p className="w3-small">{children}</p> 
+//   }
+// }
 
 export default PortablePost

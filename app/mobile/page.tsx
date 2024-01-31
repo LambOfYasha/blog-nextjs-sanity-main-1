@@ -1,6 +1,6 @@
 import { groq } from "next-sanity"
 import {client} from '../../lib/sanity.client'
-import { HeaderTitleBar } from "../../styles/styles"
+import { HeaderTitleBar, HeaderTitleBarMobile } from "../../styles/styles"
 import PortablePost from "../../components/Modal"
 
 
@@ -23,7 +23,7 @@ export default async function Page(){
    return (
 
 <article className=" w3-center">
-    <h4 className={HeaderTitleBar}>Home</h4>
+    <h4 className={HeaderTitleBarMobile}>Home</h4>
     <PortablePost posts={posts} ></PortablePost>
 </article> 
 )

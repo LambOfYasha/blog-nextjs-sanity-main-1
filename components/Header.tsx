@@ -56,7 +56,7 @@ export function HeaderDT (props: { children: string | number | boolean | React.R
     </button>
  )})} 
   {NavLink2.map((nlinks) => {
-    return (<button key={nlinks.id} className={Navigation.NavButton}>
+    return (<button key={nlinks.id} className={Navigation.NavButtonMobile}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})} 
