@@ -1,4 +1,4 @@
-import ABSTabs from './Tabs'
+import ABSTabs from './TabContainer'
 import Image from 'next/image'
 import urlFor from '../lib/urlFor'
 import { TabPanel } from 'react-tabs'

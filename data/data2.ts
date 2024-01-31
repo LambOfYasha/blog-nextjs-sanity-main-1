@@ -1,18 +1,18 @@
-const NavLinks = [
+ const NavLink2 = [
     {
         id: 1,
-        href: '/',
+        href: '/mobile',
         link: "Home",
     },
     {
         id: 2,
-        href: "/about",
+        href: "/mobile/about",
         link: "About",
     }, 
 
     {
         id: 3,
-        href: "/projects",
+        href: "/mobile/projects",
         link: "Projects",
     },
     // {
@@ -23,7 +23,7 @@ const NavLinks = [
     
     {
         id: 5,
-        href: "/contact",
+        href: "/mobile/contact",
         link: "Contact",
     },
    
@@ -42,15 +42,10 @@ const NavLinks = [
     // },
     {
         id: 8,
-        href: "/staff",
+        href: "/mobile/staff",
         link: "Staff",
-    },
-    {
-        id: 9,
-        href: "/mobile",
-        link: "Mobile",
     }
 
-]
+] 
 
-export default NavLinks
+export default NavLink2
