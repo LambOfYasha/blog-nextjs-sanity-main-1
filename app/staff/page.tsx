@@ -6,6 +6,7 @@ import { Center, Square, Circle } from '@chakra-ui/react'
 import Image from "next/image"
 import urlFor from "../../lib/urlFor"
 import { HeaderTitleBar } from "../../styles/styles"
+import React from "react"
 
    const query = groq`
     *[_type=='page'][3]
@@ -40,12 +41,12 @@ const page: Page = await client.fetch(query)
         
         
 <Center className="w3-card-4 w3-amber w3-bar">
-  {staff.map((stff: any) => {
+  {staff.map((stff: any, index: any) => {
   
- (
- <div >
+ (<React.Fragment key={index}>
+ <div key={index}>
       
-     <Image key={stff.id} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
+     <Image  className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
        
          
        
@@ -55,8 +56,9 @@ const page: Page = await client.fetch(query)
             <li>Position: {stff.position}</li>
             <li>Portfolio: <PortableText value={stff.content}></PortableText></li>
         </div> 
-        </div>
-         )})}
+        </div> </React.Fragment>
+         )})}       
+
 </Center> 
 
         </section>
