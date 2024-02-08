@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 
 
 
- function PageModal(props){
+ function PageModal(props: { btnSetting: string | undefined; btnName: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | Iterable<React.ReactNode> | null | undefined; modalId: any; label: any; children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | Iterable<React.ReactNode> | null | undefined; }){
   const [modalIsOpen2, setIsOpen2] = React.useState(false)
 
   function openModal2(){
