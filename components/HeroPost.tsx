@@ -1,7 +1,7 @@
-import AuthorAvatar from 'components/AuthorAvatar'
-import CoverImage from 'components/CoverImage'
-import Date from 'components/PostDate'
-import type { Post } from 'lib/sanity.queries'
+import AuthorAvatar from './AuthorAvatar'
+import CoverImage from './CoverImage'
+import Date from './PostDate'
+import type { Post } from '../lib/sanity.queries'
 import Link from 'next/link'
 
 export default function HeroPost(
@@ -14,7 +14,7 @@ export default function HeroPost(
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage slug={slug} title={title} image={coverImage} priority />
+        <CoverImage slug={slug} title={title as string} image={coverImage} priority />
       </div>
       <div className="mb-20 md:mb-28 md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8">
         <div>
@@ -24,7 +24,7 @@ export default function HeroPost(
             </Link>
           </h3>
           <div className="mb-4 text-lg md:mb-0">
-            <Date dateString={date} />
+            <Date dateString={date as string} />
           </div>
         </div>
         <div>

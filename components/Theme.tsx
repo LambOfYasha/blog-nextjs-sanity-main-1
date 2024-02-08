@@ -1,7 +1,5 @@
 import React from 'react'
 import Desktop from "./Themes/Desktop"
-import Mobile from "./Themes/Mobile"
-import Tablet from "./Themes/Tablet"
 import PageModal from './PageModal'
 
 function Theme(props: { title: any; children: any }){
