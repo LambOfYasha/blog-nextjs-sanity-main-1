@@ -44,9 +44,9 @@ const page: Page = await client.fetch(query)
   {staff.map((stff: any, index: any) => {
   
  (
- <React.Fragment key={index}>
+ <React.Fragment key={`${stff.id}+${index}`}>
       
-     <Image key={index} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
+     <Image key={stff.id} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
         <div key={stff.id} className="w3-bar-item w3-ul w3-white w3-right w3-container">
             <li>Name: {stff.name}</li> 
             <li>Alias: {stff.alias}</li>
