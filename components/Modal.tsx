@@ -1,3 +1,4 @@
+'use client'
 import React, {useState} from "react"
 import { PortableText } from "@portabletext/react"
 import Modal from 'react-modal';
