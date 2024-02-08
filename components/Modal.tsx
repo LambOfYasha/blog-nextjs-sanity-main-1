@@ -74,7 +74,8 @@ className="w3-button w3-margin w3-black w3-opacity-min w3-tiny">{new Date(post._
       </div>
     </div>
   </Modal>
-  </div>)
+  </div>
+  )
 })}
   </div>
  )
