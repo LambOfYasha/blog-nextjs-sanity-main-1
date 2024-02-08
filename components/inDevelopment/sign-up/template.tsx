@@ -1,5 +1,5 @@
 'use client'
-import Theme from "../../components/Theme";
+import Theme from "../../Theme";
 
 export default function Template({ children }: {
     children: React.ReactNode
