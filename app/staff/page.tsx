@@ -48,10 +48,10 @@ const page: Page = await client.fetch(query)
       
      <Image key={stff.id} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
         <div key={stff.id} className="w3-bar-item w3-ul w3-white w3-right w3-container">
-            <li>Name: {stff.name}</li> 
-            <li>Alias: {stff.alias}</li>
-            <li>Position: {stff.position}</li>
-            <li>Portfolio: <PortableText value={stff.content}></PortableText></li>
+            <li key={stff.id}>Name: {stff.name}</li> 
+            <li key={stff.id}>Alias: {stff.alias}</li>
+            <li key={stff.id}>Position: {stff.position}</li>
+            <li key={stff.id}>Portfolio: <PortableText value={stff.content}></PortableText></li>
         </div> 
         </React.Fragment>
          )})}
