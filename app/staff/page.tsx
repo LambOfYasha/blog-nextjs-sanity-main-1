@@ -14,7 +14,7 @@ import { HeaderTitleBar } from "../../styles/styles"
         coverImage,
     }`
 
-
+ 
 const query2 = groq`
 *[_type=='staff']
 {
