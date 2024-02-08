@@ -4,7 +4,7 @@ import { HeaderTitleBar, HeaderTitleBarMobile } from "../../styles/styles"
 import PortablePost from "../../components/Modal"
 
 
-export const query = groq`
+ const query = groq`
   *[_type=='post']{
     ...,
     coverImage,
