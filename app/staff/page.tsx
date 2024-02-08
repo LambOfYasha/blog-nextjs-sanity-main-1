@@ -43,22 +43,18 @@ const page: Page = await client.fetch(query)
 <Center className="w3-card-4 w3-amber w3-bar">
   {staff.map((stff: any, index: any) => {
   
- (<React.Fragment key={index}>
- <div key={index}>
+ (
+ <React.Fragment key={index}>
       
-     <Image  className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
-       
-         
-       
+     <Image key={index} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
         <div key={stff.id} className="w3-bar-item w3-ul w3-white w3-right w3-container">
             <li>Name: {stff.name}</li> 
             <li>Alias: {stff.alias}</li>
             <li>Position: {stff.position}</li>
             <li>Portfolio: <PortableText value={stff.content}></PortableText></li>
         </div> 
-        </div> </React.Fragment>
-         )})}       
-
+        </React.Fragment>
+         )})}
 </Center> 
 
         </section>
