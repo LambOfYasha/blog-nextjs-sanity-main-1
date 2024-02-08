@@ -4,7 +4,7 @@ import { PortableText } from "@portabletext/react"
 import Modal from 'react-modal';
 import Image from "next/image"
 import urlFor from "../lib/urlFor"
-
+ 
 
 type Props = {
   posts: Post[]
