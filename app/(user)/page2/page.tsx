@@ -1,13 +1,13 @@
 import React from "react"
 import { groq } from "next-sanity"
-import { client } from "../../lib/sanity.client"
-import BlogBox from "../../components/BlogBox"
-import { Banner } from "../../components/Themes/Desktop"
-import PortablePost from "../../components/Modal"
+import { client } from "../../../lib/sanity.client"
+import BlogBox from "../../../components/BlogBox"
+import { Banner } from "../../../components/Themes/Desktop"
+import PortablePost from "../../../components/Modal"
 import Link from "next/link"
 
 export const query = groq`
-  *[_type=='post'][0...10]{
+  *[_type=='post'][10...20]{
     ...,
     coverImage,
     author->,
@@ -26,7 +26,7 @@ return<section>
   <Banner />
   <BlogBox posts={posts}  />
   <PortablePost posts={posts} ></PortablePost>
-  <Link className="w3-center" href={'http://localhost:3000/page2'} ><p>Next Page</p></Link>
+  <Link className="w3-center" href={'http://localhost:3000/'} ><p>Prev Page</p></Link>
 </section>}
 
 
