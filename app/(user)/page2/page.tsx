@@ -6,7 +6,7 @@ import { Banner } from "../../../components/Themes/Desktop"
 import PortablePost from "../../../components/Modal"
 import Link from "next/link"
 
-export const query = groq`
+ const query = groq`
   *[_type=='post'][10...20]{
     ...,
     coverImage,
