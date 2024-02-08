@@ -1,5 +1,5 @@
 'use client'
-import React from "react"
+import React, {useState} from "react"
 import { PortableText } from "@portabletext/react"
 import Modal from 'react-modal';
 import Image from "next/image"
@@ -10,7 +10,7 @@ type Props = {
   posts: Post[]
 }
 
-      const [modalIsOpen, setIsOpen] = React.useState(false)
+      const [modalIsOpen, setIsOpen] = useState(false)
 
   function PortablePost({posts}: Props){
 
