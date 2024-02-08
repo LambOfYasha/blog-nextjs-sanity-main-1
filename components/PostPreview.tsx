@@ -3,6 +3,7 @@ import CoverImage from './CoverImage'
 import Date from './PostDate'
 import type { Post } from '../lib/sanity.queries'
 import Link from 'next/link'
+import { string } from 'zod'
 
 export default function PostPreview({
   title,
@@ -17,7 +18,7 @@ export default function PostPreview({
       <div className="mb-5">
         <CoverImage
           slug={slug}
-          title={title}
+          title={title as string}
           image={coverImage}
           priority={false}
         />
@@ -28,7 +29,7 @@ export default function PostPreview({
         </Link>
       </h3>
       <div className="mb-4 text-lg">
-        <Date dateString={date} />
+        <Date dateString={date as string} />
       </div>
       {excerpt && <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>}
       {author && <Avatar name={author.name} picture={author.picture} />}

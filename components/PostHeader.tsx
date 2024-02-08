@@ -7,7 +7,7 @@ import type { Post } from '../lib/sanity.queries'
 export default function PostHeader(
   props: Pick<Post, 'title' | 'coverImage' | 'date' | 'author' | 'slug'>
 ) {
-  const { title, coverImage, date, author, slug } = props
+  const { title, coverImage, date, author, slug }:{[key:string]:any} = props
   return (
     <>
       <PostTitle>{title}</PostTitle>

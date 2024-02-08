@@ -22,7 +22,7 @@ export interface PostPageProps {
 const NO_POSTS: Post[] = []
 
 export default function PostPage(props: PostPageProps) {
-  const { preview, loading, morePosts = NO_POSTS, post, settings } = props
+  const { preview, loading, morePosts = NO_POSTS, post, settings }:{[key:string]:any} = props
   const { title = demo.title } = settings || {}
 
   const slug = post?.slug
