@@ -42,7 +42,7 @@ export default async function Page(){
   
   return (<div>
       
-     <Image key={staff.id} className="w3-circle w3-border w3-border-black" width={125} height={125} src={urlFor(staff.picture).url()} alt={staff.name} /> 
+     <Image className="w3-circle w3-border w3-border-black" width={125} height={125} src={urlFor(staff.picture).url()} alt={staff.name} /> 
        
         
        
