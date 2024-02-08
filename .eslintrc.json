@@ -8,5 +8,5 @@
     "react/no-unescaped-entities": "off",
     "react/jsx-key": [1, { "checkFragmentShorthand": true }],
     "@next/next/no-page-custom-font": "off"
-  }
+  } 
 }
