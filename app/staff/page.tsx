@@ -25,7 +25,7 @@ const query2 = groq`
     
 export default async function Page(){
 
- const staff: Staff = await client.fetch(query2)
+ const staff: Page = await client.fetch(query2)
 
 const page: Page = await client.fetch(query)
 
