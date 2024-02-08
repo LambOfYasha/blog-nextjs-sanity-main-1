@@ -1,15 +1,15 @@
-'use client'
+// 'use client'
 
-import SignUpForm from "../../components/Forms/SignUpForm"
+// import SignUpForm from "../../components/Forms/SignUpForm"
 
 
     
-export default async function Page(){
+// export default async function Page(){
 
  
-   return (
+//    return (
 
-   <SignUpForm/>
-)
-}
+//    <SignUpForm/>
+// )
+// }
 
