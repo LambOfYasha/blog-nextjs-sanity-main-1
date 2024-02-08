@@ -17,7 +17,7 @@ import React from "react"
 
  
 const query2 = groq`
-*[_type=='staff'][0]
+*[_type=='staff']
 {
     ...,
     picture,
