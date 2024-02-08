@@ -18,7 +18,7 @@ import urlFor from "../../../lib/urlFor"
 }`
 
 const query2 = groq`
-*[_type=='staff']
+*[_type=='staff'][0]
 {
     ...,
     picture,
@@ -43,9 +43,7 @@ export default async function Page(){
   return (<div>
       
      <Image className="w3-circle w3-border w3-border-black" width={125} height={125} src={urlFor(staff.picture).url()} alt={staff.name} /> 
-       
-        
-       
+          
         <div className="w3-bar-item w3-ul w3-white w3-right w3-small w3-container">
             <li>Name: {staff.name}</li> 
             <li>Alias: {staff.alias}</li>
