@@ -25,7 +25,7 @@ const GreedySalvationLinks = [
   
 //   {
 //       id: 5,
-//       href: "/projects/greedy-salvation/Gallery",
+//        href: "/projects/greedy-salvation/Gallery",
 //       link: "Gallery",
 //   },
  
