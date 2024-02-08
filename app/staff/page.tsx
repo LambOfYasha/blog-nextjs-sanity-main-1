@@ -49,12 +49,13 @@ const page: Page = await client.fetch(query)
        
         
        
-        <div className="w3-bar-item w3-ul w3-white w3-right w3-container">
+        <div key={stff.id} className="w3-bar-item w3-ul w3-white w3-right w3-container">
             <li>Name: {stff.name}</li> 
             <li>Alias: {stff.alias}</li>
             <li>Position: {stff.position}</li>
             <li>Portfolio: <PortableText value={stff.content}></PortableText></li>
-        </div> </div>
+        </div> 
+        </div>
          )})}
 </Center> 
 
