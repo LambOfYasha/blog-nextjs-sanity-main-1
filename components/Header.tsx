@@ -7,7 +7,7 @@ import Image from 'next/image'
 import SignInButton from './SignInButton'
 import { AbsLogo } from '../styles/images'
 
-export function HeaderDT (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined }){
+export function HeaderDT (props: { type: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined }){
 
 
     return (<header className={Navigation.NavBarDT} >

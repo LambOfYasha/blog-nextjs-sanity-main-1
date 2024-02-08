@@ -40,11 +40,11 @@ const page: Page = await client.fetch(query)
         
         
 <Center className="w3-card-4 w3-amber w3-bar">
-  {staff.map(stff => {
+  {staff.map((stff: any) => {
   
-  return (<>
+ (<div key={stff.id}>
       
-     <Image key={stff.id} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
+     <Image className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
        
         
        
@@ -53,7 +53,7 @@ const page: Page = await client.fetch(query)
             <li>Alias: {stff.alias}</li>
             <li>Position: {stff.position}</li>
             <li>Portfolio: <PortableText value={stff.content}></PortableText></li>
-        </div> </>
+        </div> </div>
          )})}
 </Center>
 

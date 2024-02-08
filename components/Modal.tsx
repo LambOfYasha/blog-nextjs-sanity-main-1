@@ -10,6 +10,7 @@ type Props = {
   posts: Post[]
 }
 
+      const [modalIsOpen, setIsOpen] = React.useState(false)
 
   function PortablePost({posts}: Props){
 
@@ -20,9 +21,8 @@ type Props = {
   return (
     <div className="w3-container w3-hide-large">
          
-      
+
    {posts.map((post) => {
-const [modalIsOpen, setIsOpen] = React.useState(false)
 
 function openModal(){
   setIsOpen(true)
