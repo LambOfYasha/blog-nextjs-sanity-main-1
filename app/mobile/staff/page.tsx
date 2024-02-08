@@ -25,10 +25,10 @@ const query2 = groq`
 }`
 
     
-export default async function Page(){
-
+export default async function Page(): Promise<JSX.Element>{
+  
+    const staff = await client.fetch(query2)
   const page: Page = await client.fetch(query)
-  const staff = await client.fetch(query2)
 
 
    return (
@@ -38,9 +38,8 @@ export default async function Page(){
     <PortableText value={page[3].content} ></PortableText>
 
     <Center className="w3-card-4 w3-amber w3-bar">
-  {staff.map((staff: { id: Key | null | undefined; picture: any; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | null | undefined; alias: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; position: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; content: any }) => {
   
-  return (<div>
+<div>
       
      <Image className="w3-circle w3-border w3-border-black" width={125} height={125} src={urlFor(staff.picture).url()} alt={staff.name} /> 
           
@@ -51,7 +50,7 @@ export default async function Page(){
             <li>Portfolio: <PortableText value={staff.content}></PortableText></li>
         </div> 
         </div>
-         )})}
+       
 </Center>
 </article> 
 )
