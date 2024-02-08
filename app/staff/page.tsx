@@ -56,7 +56,7 @@ const page: Page = await client.fetch(query)
             <li>Portfolio: <PortableText value={stff.content}></PortableText></li>
         </div> </div>
          )})}
-</Center>
+</Center> 
 
         </section>
 </article> 
