@@ -4,7 +4,7 @@ import {AbsLogo} from '../../styles/images'
 import { PortableText } from "@portabletext/react"
 import Footer from "../Footer"
 import * as Navigation from '../../styles/styles'
-import Accordion from '../Accordion'
+import Accordion from '../inDevelopment/Accordion'
 import {client} from '../../lib/sanity.client'
 import PageModal from '../PageModal'
 

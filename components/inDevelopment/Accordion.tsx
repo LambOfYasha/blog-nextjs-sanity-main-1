@@ -1,6 +1,7 @@
+import { Any } from '@sanity/client';
 import React from 'react'
 
-function Accordion(props) {
+function Accordion(props: Any) {
 
 
 function myFunction() {
