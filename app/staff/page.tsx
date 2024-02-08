@@ -43,9 +43,9 @@ const page: Page = await client.fetch(query)
   {staff.map((stff: any) => {
   
  (
- <div key={stff.id}>
+ <div >
       
-     <Image className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
+     <Image key={stff.id} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
        
         
        

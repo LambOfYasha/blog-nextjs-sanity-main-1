@@ -1,4 +1,3 @@
-'use client'
 import React, {useState} from "react"
 import { PortableText } from "@portabletext/react"
 import Modal from 'react-modal';
@@ -10,11 +9,11 @@ type Props = {
   posts: Post[]
 }
 
-      const [modalIsOpen, setIsOpen] = useState(false)
 
   function PortablePost({posts}: Props){
 
     // Modal.setAppElement('#root')
+      const [modalIsOpen, setIsOpen] = useState(false)
 
     
 
