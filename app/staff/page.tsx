@@ -17,7 +17,7 @@ import React from "react"
 
  
 const query2 = groq`
-*[_type=='staff']
+*[_type=='staff'][0]
 {
     ...,
     picture,
@@ -41,20 +41,14 @@ const page: Page = await client.fetch(query)
         
         
 <Center className="w3-card-4 w3-amber w3-bar">
-  {staff.map((stff: any, index: any) => {
-  
- (
- <React.Fragment key={`${stff.id}+${index}`}>
       
-     <Image key={stff.id} className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(stff.picture).url()} alt={stff.name} /> 
-        <div key={stff.id} className="w3-bar-item w3-ul w3-white w3-right w3-container">
-            <li key={stff.id}>Name: {stff.name}</li> 
-            <li key={stff.id}>Alias: {stff.alias}</li>
-            <li key={stff.id}>Position: {stff.position}</li>
-            <li key={stff.id}>Portfolio: <PortableText value={stff.content}></PortableText></li>
+     <Image className="w3-hide-small  w3-circle w3-border w3-border-black" width={225} height={225} src={urlFor(staff.picture).url()} alt={staff.name} /> 
+        <div className="w3-bar-item w3-ul w3-white w3-right w3-container">
+            <li>Name: {staff.name}</li> 
+            <li>Alias: {staff.alias}</li>
+            <li>Position: {staff.position}</li>
+            <li>Portfolio: <PortableText value={staff.content}></PortableText></li>
         </div> 
-        </React.Fragment>
-         )})}
 </Center> 
 
         </section>
