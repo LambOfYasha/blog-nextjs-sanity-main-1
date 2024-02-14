@@ -2,6 +2,7 @@ import { groq } from "next-sanity"
 import {client} from '../../lib/sanity.client'
 import { HeaderTitleBar, HeaderTitleBarMobile } from "../../styles/styles"
 import PortablePost from "../../components/Modal"
+import BlogBox from "../../components/BlogBox"
 
 
  const query = groq`
@@ -24,7 +25,7 @@ export default async function Page(){
 
 <article className=" w3-center">
     <h4 className={HeaderTitleBarMobile}>Home</h4>
-    <PortablePost posts={posts} ></PortablePost>
+    <BlogBox posts={posts}  />
 </article> 
 )
 }

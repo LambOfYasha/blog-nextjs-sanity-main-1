@@ -9,7 +9,7 @@ type Props = {
 
 function BlogBox({posts}: Props) {
   return (
-    <div className=" w3-row-padding w3-hide-small w3-hide-medium" style={{margin:"auto", width: '50%'}}>
+    <div className=" w3-row-padding" style={{margin:"auto", width: '50%'}}>
  {posts.map((post) => {
   return (<>
   <ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>

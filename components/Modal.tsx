@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react"
 import Modal from 'react-modal';
 import Image from "next/image"
 import urlFor from "../lib/urlFor"
+import ClientSideRoute from "./ClientSideRoute";
  
 
 type Props = {
@@ -19,7 +20,7 @@ type Props = {
     
 
   return (
-    <div className="w3-container w3-hide-large">
+    <div className="w3-container w3-hide">
          
 
    {posts.map((post) => {
@@ -52,6 +53,7 @@ className="w3-button w3-margin w3-black w3-opacity-min w3-tiny">{new Date(post._
    onRequestClose={closeModal}
    contentLabel={`${post.title}`}>
     <div className="w3-modal-content">
+    <ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
       <div className="w3-container w3-tiny">
         <span onClick={closeModal} className="w3-button w3-display-topright  w3-red">&times;</span>
         <article>
@@ -73,11 +75,15 @@ className="w3-button w3-margin w3-black w3-opacity-min w3-tiny">{new Date(post._
         <PortableText value={post.content} ></PortableText></section>
     </article> 
       </div>
+      </ClientSideRoute>
     </div>
+
   </Modal>
+
   </div>
   )
 })}
+
   </div>
  )
 }
