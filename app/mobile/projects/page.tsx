@@ -29,7 +29,7 @@ export default async function Page(){
 <article className="w3-hide-large w3-hide-medium w3-center">
     <h4 className={HeaderTitleBarMobile}>{page[2].title}</h4>
     <PortableText value={page[2].content} ></PortableText>
-    <Link href={"http://localhost:3000/mobile/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
+    <Link href={"https://www.antiblasphemy.studio/mobile/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
 </Link>
 </article> 
 )

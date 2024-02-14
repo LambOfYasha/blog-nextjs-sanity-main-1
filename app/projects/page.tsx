@@ -31,7 +31,7 @@ const page: Page = await client.fetch(query)
         <PortableText value={page.content}></PortableText></section> 
     
     
-    <Link href={"http://localhost:3000/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
+    <Link href={"https://www.antiblasphemy.studio/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
 </Link>
 </article> 
 )
