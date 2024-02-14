@@ -26,7 +26,7 @@ return<section>
   <Banner />
   <BlogBox posts={posts}  />
   <PortablePost posts={posts} ></PortablePost>
-  <Link className="w3-center" href={'http://localhost:3000/'} ><p>Prev Page</p></Link>
+  <Link className="w3-center" href={'https://www.antiblasphemy.studio/'} ><p>Prev Page</p></Link>
 </section>}
 
 
