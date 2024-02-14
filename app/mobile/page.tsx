@@ -22,7 +22,7 @@ export default async function Page(){
 
 
    return (
-
+ 
 <article className=" w3-center">
     <h4 className={HeaderTitleBarMobile}>Home</h4>
     <BlogBox posts={posts}  />
