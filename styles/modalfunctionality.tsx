@@ -1,5 +1,5 @@
 
 
-        function getElementId(props) { return document.getElementById(props.id)}
+        function getElementId(props: { id: string }) { return document.getElementById(props.id)}
 
         export default getElementId
