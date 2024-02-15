@@ -5,20 +5,28 @@ import BlogBox from "../../components/BlogBox"
 import Link from "next/link"
 
 
- const query = groq`
-  *[_type=='post']{
-    ...,
-    coverImage,
-    author->,
-    categories[]->
-  } | order(_createdAt desc)
+const query = groq`
+*[_type=='post'][0...10]{
+  ...,
+  coverImage,
+  author->,
+  categories[]->
+} | order(_createdAt desc)
 `
 
-
+const query2 = groq`
+*[_type=='post'][10...20]{
+  ...,
+  coverImage,
+  author->,
+  categories[]->
+} | order(_createdAt desc)
+`
     
 export default async function Page(){
 
     const posts = await client.fetch(query)
+    const posts2 = await client.fetch(query2)
 
 
    return (
@@ -26,7 +34,8 @@ export default async function Page(){
 <article className=" w3-center">
     <h4 className={HeaderTitleBarMobile}>Home</h4>
      <BlogBox posts={posts}  />
-     <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link>
+     <BlogBox posts={posts2}  />
+     {/* <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link> */}
 
 </article> 
 )

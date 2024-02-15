@@ -7,7 +7,7 @@ import PortablePost from "../../../components/Modal"
 import Link from "next/link"
 
  const query = groq`
-  *[_type=='post'][10...20]{
+  *[_type=='post'][21...30]{
     ...,
     coverImage,
     author->,

@@ -15,6 +15,14 @@ import Link from "next/link"
   } | order(_createdAt desc)
 `
 
+const query2 = groq`
+  *[_type=='post'][10...20]{
+    ...,
+    coverImage,
+    author->,
+    categories[]->
+  } | order(_createdAt desc)
+`
 
 
 export default async function Page() {
@@ -22,11 +30,14 @@ export default async function Page() {
 
 
 const posts = await client.fetch(query)
+const posts2 = await client.fetch(query2)
+
 return<section>
   <Banner />
   <BlogBox posts={posts}  />
+  <BlogBox posts={posts2}  />
   <PortablePost posts={posts} ></PortablePost>
-  <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link>
+  {/* <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link> */}
 </section>}
 
 
