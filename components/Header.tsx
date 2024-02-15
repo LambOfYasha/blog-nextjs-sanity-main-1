@@ -6,27 +6,28 @@ import NavLink2 from '../data/data2'
 import Image from 'next/image'
 import SignInButton from './SignInButton'
 import { AbsLogo } from '../styles/images'
+import { width } from './OpenGraphImage'
 
 export function HeaderDT (props: { type: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined }){
 
 
     return (<header className={Navigation.NavBarDT} >
 
-    <Image src={AbsLogo} className='w3-image w3-hide-large w3-hide-medium' alt="ABSBanner" width="150" height="100" />
+    <Image src={AbsLogo} className='w3-image w3-hide-large w3-hide-medium' alt="ABSBanner" width="250" height="50" />
 
 {/* <SignInButton/> */}
         {NavLinks.map((nlinks) => {
-    return (<button key={nlinks.id} className={Navigation.NavButtonDT}>
+    return (<button key={nlinks.id} className={Navigation.NavButtonDT} style={{width: '10%'}}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})} 
  {NavLinks.map((nlinks) => {
-    return (<button key={nlinks.id} className={Navigation.NavButtonTab}>
+    return (<button key={nlinks.id} className={Navigation.NavButtonTab} style={{width: 'auto'}}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})} 
   {NavLink2.map((nlinks) => {
-    return (<button key={nlinks.id} className={Navigation.NavButtonMobile}>
+    return (<button key={nlinks.id} className={Navigation.NavButtonMobile} style={{width: '22%'}}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
  )})} 
