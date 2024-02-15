@@ -2,9 +2,15 @@ import Footer from '../components/Footer'
 import { HeaderDT } from '../components/Header'
 import Providers from '../components/Providers'
 import '../styles/w3css.css'
+
 export const metadata = {
   title: 'AB Studios',
   description: 'A Christian Fictional Multimedia Company',
+  icons: {
+    icon: ['/favicon.ico?v=4'],
+    apple: ['/apple.png?v=4'],
+    shortcut: ['/apple.png']
+  }
 }
 
 export default function RootLayout({
