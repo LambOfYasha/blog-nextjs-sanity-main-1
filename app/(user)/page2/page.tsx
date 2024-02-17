@@ -19,7 +19,7 @@ import Link from "next/link"
 
 export default async function Page() {
 
-
+ 
 
 const posts = await client.fetch(query)
 return<section>
