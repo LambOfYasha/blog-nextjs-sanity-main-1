@@ -18,15 +18,15 @@ import Link from "next/link"
 
 
 export default async function Page() {
-
- 
-
 const posts = await client.fetch(query)
+
 return<section>
   <Banner />
   <BlogBox posts={posts}  />
   <PortablePost posts={posts} ></PortablePost>
   <Link className="w3-center" href={'https://www.antiblasphemy.studio/'} ><p>Prev Page</p></Link>
-</section>}
+</section>
+
+}
 
 

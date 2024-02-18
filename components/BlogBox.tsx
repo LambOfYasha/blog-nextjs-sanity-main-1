@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import urlFor from "../lib/urlFor"
 import ClientSideRoute from "./ClientSideRoute"
@@ -6,8 +7,8 @@ type Props = {
   posts: Post[]
 }
 
-
 function BlogBox({posts}: Props) {
+
   return (
     <div className="w3-mobile w3-row w3-cell" style={{margin:"auto", width: '50%'}}>
  {posts.map((post) => {
