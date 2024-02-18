@@ -11,7 +11,7 @@ export const metadata = {
     apple: ['/apple.png?v=4'],
     shortcut: ['/apple.png']
   }
-}
+} 
 
 export default function RootLayout({
   children,
