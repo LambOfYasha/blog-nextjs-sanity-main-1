@@ -9,6 +9,7 @@ import Link from "next/link"
 import GreedySalvationMenu from "../../../../components/GreedySalvationMenu"
 import { HeaderTitleBar } from "../../../../styles/styles"
 
+export const revalidate = 30
 
    const query = groq`
    

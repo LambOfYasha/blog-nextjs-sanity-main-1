@@ -4,6 +4,7 @@ import { HeaderTitleBar, HeaderTitleBarMobile } from "../../styles/styles"
 import BlogBox from "../../components/BlogBox"
 import Link from "next/link"
 
+export const revalidate = 30
 
 const query = groq`
 *[_type=='post'][0...10]{
