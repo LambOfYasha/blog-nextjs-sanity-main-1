@@ -23,6 +23,7 @@ function BlogBox({posts}: Props) {
       year: "numeric",
      })}
      </div>
+     <div className="w3-amber w3-container w3-padding w3-tiny">{post.category}</div>
  </article>
  </ClientSideRoute>
  </>
