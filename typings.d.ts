@@ -51,6 +51,7 @@ interface Post extends Base {
     };
     slug: {current: string;};
     body: [object];
+    categories: Category[];
 }
 
 interface Author extends Base {
