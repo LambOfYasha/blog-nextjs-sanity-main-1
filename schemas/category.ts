@@ -9,7 +9,8 @@ export default defineType({
   type: 'document',
   icon: TagIcon,
   fields: [
-    defineField({name: 'title', type: 'string'}),
+    defineField({name: 'title', title: 'Title', type: 'string'}),
+    defineField({name: 'description', title: 'Description', type: 'text'}),
     defineField({
       name: 'parent',
       type: 'reference',
