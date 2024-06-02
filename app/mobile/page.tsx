@@ -36,7 +36,7 @@ export default async function Page(){
     <h4 className={HeaderTitleBarMobile}>Home</h4>
      <BlogBox posts={posts}  />
      <BlogBox posts={posts2}  />
-     {/* <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link> */}
+     <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link>
 
 </article> 
 )

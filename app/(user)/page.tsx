@@ -40,7 +40,7 @@ return<section>
   <BlogBox posts={posts}  />
   <BlogBox posts={posts2}  />
   <PortablePost posts={posts} ></PortablePost>
-  {/* <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link> */}
+  <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link>
 </section>}
 
 
