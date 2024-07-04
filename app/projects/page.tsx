@@ -6,6 +6,7 @@ import Image from "next/image"
 import { HeaderTitleBar } from "../../styles/styles"
 import Link from "next/link"
 // import urlFor from "../../lib/urlFor"
+export const revalidate = 30
 
    const query = groq`
     *[_type=='page'][2]

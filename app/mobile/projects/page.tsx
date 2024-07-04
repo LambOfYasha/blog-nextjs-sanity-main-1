@@ -10,6 +10,7 @@ import { GreedySalvationBanner } from "../../../styles/images"
 import Link from "next/link"
 import Image from "next/image"
 
+export const revalidate = 30
 
  const query = groq`
 *[_type=='page']

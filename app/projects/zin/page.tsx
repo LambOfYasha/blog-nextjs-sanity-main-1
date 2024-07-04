@@ -4,14 +4,14 @@ import {client} from '../../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import urlFor from "../../../lib/urlFor"
-import GreedySalvationMenu from "../../../components/GreedySalvationMenu"
+import ZinMenu from "../../../components/ZinMenu"
 import { HeaderTitleBar } from "../../../styles/styles"
 
 export const revalidate = 30
 
    const query = groq`
    
-    *[_type=='page'][6]
+    *[_type=='page'][4]
     {
         ...,
         coverImage,
@@ -28,7 +28,7 @@ const page: Page = await client.fetch(query)
    <article className="w3-hide-small">
     <section className="w3-center">
         <div className={HeaderTitleBar}>{page.title}</div>
-        <GreedySalvationMenu/>
+        <ZinMenu/>
     </section>
 
     <section className="w3-center">

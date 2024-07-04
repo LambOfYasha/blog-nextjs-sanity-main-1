@@ -8,6 +8,8 @@ import urlFor from "../../lib/urlFor"
 import { HeaderTitleBar } from "../../styles/styles"
 import React from "react"
 
+export const revalidate = 30
+
    const query = groq`
     *[_type=='page'][3]
     {

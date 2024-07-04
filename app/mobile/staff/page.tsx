@@ -10,6 +10,7 @@ import ContentTab from "../../../components/TabContainer"
 import { Center, Square, Circle } from '@chakra-ui/react'
 import urlFor from "../../../lib/urlFor"
 
+export const revalidate = 30
 
  const query = groq`
 *[_type=='page']

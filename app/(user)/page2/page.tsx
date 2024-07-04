@@ -6,6 +6,9 @@ import { Banner } from "../../../components/Themes/Desktop"
 import PortablePost from "../../../components/Modal"
 import Link from "next/link"
 
+export const revalidate = 30
+
+
  const query = groq`
   *[_type=='post'][21...30]{
     ...,
