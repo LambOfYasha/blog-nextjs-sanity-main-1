@@ -6,6 +6,9 @@ import { HeaderTitleBar } from "../../styles/styles"
 // import Image from "next/image"
 // import urlFor from "../../lib/urlFor"
 
+export const revalidate = 30
+
+
    const query = groq`
     *[_type=='page'][0]
     {

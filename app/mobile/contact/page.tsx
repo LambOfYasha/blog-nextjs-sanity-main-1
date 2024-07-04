@@ -9,6 +9,9 @@ import PageModal from "../../../components/PageModal"
 import ContentTab from "../../../components/TabContainer"
 
 
+export const revalidate = 30
+
+
  const query = groq`
 *[_type=='page']
 {
