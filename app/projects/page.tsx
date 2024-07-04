@@ -6,6 +6,7 @@ import Image from "next/image"
 import { HeaderTitleBar } from "../../styles/styles"
 import Link from "next/link"
 // import urlFor from "../../lib/urlFor"
+
 export const revalidate = 30
 
    const query = groq`
@@ -34,7 +35,7 @@ const page: Page = await client.fetch(query)
     
     <Link href={"https://www.antiblasphemy.studio/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image w3-opacity w3-hover-opacity-off' alt="GreedySalvation" width="500" height="250" />
 </Link>
-<Image src={ZINBanner} className='w3-image w3-opacity w3-hover-opacity-off' alt="ZIN" width="500" height="200" />
+<Link href={"https://www.antiblasphemy.studio/projects/zin"} ><Image src={ZINBanner} className='w3-image w3-opacity w3-hover-opacity-off' alt="ZIN" width="500" height="200" /></Link>
 </article> 
 )
 }

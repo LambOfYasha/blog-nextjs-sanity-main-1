@@ -13,7 +13,7 @@ import Image from "next/image"
 export const revalidate = 30
 
  const query = groq`
-*[_type=='page']
+*[_type=='page'][2]
 {
     ...,
 }`
@@ -27,10 +27,10 @@ export default async function Page(){
 
    return (
 
-<article className="w3-hide-large w3-hide-medium w3-center">
-    <h4 className={HeaderTitleBarMobile}>{page[2].title}</h4>
-    <PortableText value={page[2].content} ></PortableText>
-    <Link href={"https://www.antiblasphemy.studio/mobile/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
+<article className="w3-hide-large w3-hide-medium">
+    <h4 className={HeaderTitleBarMobile}>{page.title}</h4>
+    <PortableText value={page.content} ></PortableText>
+    <Link href={"https://www.antiblasphemy.studio/mobile/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image w3-hide-large w3-hide-medium' alt="GreedySalvation" width="300" height="50" />
 </Link>
 </article> 
 )
