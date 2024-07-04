@@ -13,7 +13,7 @@ import { HeaderTitleBar } from "../../../../styles/styles"
 export const revalidate = 30
 
    const query = groq`
-    *[_type=='page'][5]
+    *[_type=='page'][6]
     {
         ...,
         coverImage,

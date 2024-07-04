@@ -11,7 +11,7 @@ export const revalidate = 30
 
    const query = groq`
    
-    *[_type=='page'][6]
+    *[_type=='page'][7]
     {
         ...,
         coverImage,
