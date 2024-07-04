@@ -31,9 +31,9 @@ const page: Page = await client.fetch(query)
         <PortableText value={page.content}></PortableText></section> 
     
     
-    <Link href={"https://www.antiblasphemy.studio/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
+    <Link href={"https://www.antiblasphemy.studio/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image w3-opacity w3-hover-opacity-off' alt="GreedySalvation" width="500" height="250" />
 </Link>
-<Image src={ZINBanner} className='w3-image' alt="ZIN" width="500" height="200" />
+<Image src={ZINBanner} className='w3-image w3-opacity w3-hover-opacity-off' alt="ZIN" width="500" height="200" />
 </article> 
 )
 }
