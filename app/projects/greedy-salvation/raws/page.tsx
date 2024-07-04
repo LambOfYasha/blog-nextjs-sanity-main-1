@@ -33,7 +33,7 @@ const page: Page = await client.fetch(query)
         <GreedySalvationMenu/>
     </section>
     <section className="w3-margin w3-center">
-    <Image className="w3-hide-small" width={700} height={350} src={urlFor(page.coverImage).url()} alt={page.title} />
+    {/* <Image className="w3-hide-small" width={700} height={350} src={urlFor(page.coverImage).url()} alt={page.title} /> */}
     {page.excerpt}
         <PortableText value={page.content}></PortableText></section>
 </article> 
