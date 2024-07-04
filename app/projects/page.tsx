@@ -1,7 +1,7 @@
 import { groq } from "next-sanity"
 import {client} from '../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
-import { GreedySalvationBanner } from "../../styles/images"
+import { GreedySalvationBanner, ZINBanner } from "../../styles/images"
 import Image from "next/image"
 import { HeaderTitleBar } from "../../styles/styles"
 import Link from "next/link"
@@ -33,6 +33,7 @@ const page: Page = await client.fetch(query)
     
     <Link href={"https://www.antiblasphemy.studio/projects/greedy-salvation"} ><Image src={GreedySalvationBanner} className='w3-image' alt="GreedySalvation" width="500" height="250" />
 </Link>
+<Image src={ZINBanner} className='w3-image' alt="ZIN" width="500" height="200" />
 </article> 
 )
 }
