@@ -12,7 +12,7 @@ import { HeaderTitleBar } from "../../../../../styles/styles"
 export const revalidate = 30
 
    const query = groq`
-    *[_type=='character']
+    *[_type=='character'  && series=='Greedy Salvation']
     {
         ...,
         avi,
