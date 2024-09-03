@@ -175,7 +175,7 @@ function Post({ params: { slug } }: Props) {
                         required
                         disabled={isSubmitting}
                     ></textarea>
-                    <button type="submit" disabled={isSubmitting}>
+                    <button className="w3-button w3-white w3-hover-light-grey" type="submit" disabled={isSubmitting}>
                         {isSubmitting ? 'Submitting...' : 'Submit Comment'}
                     </button>
                 </form>
