@@ -147,8 +147,8 @@ function Post({ params: { slug } }: Props) {
                 <PortableText value={post.content} />
             </section>
             <section className="w3-margin w3-left">
-                <h3>Comments</h3>
-                <form onSubmit={handleSubmit}>
+                <h3 className="w3-border-top w3-border-black w3-margin-top">Comments</h3>
+                <form className="w3-amber w3-cell w3-border w3-border-black" onSubmit={handleSubmit}>
                     <label htmlFor="name">Name:</label>
                     <input 
                         type="text" 
@@ -182,10 +182,10 @@ function Post({ params: { slug } }: Props) {
                 <div>
                     {comments.length > 0 ? (
                         comments.map((comment) => (
-                            <div key={comment._id} className="w3-card w3-margin">
-                                <h4>{comment.name}</h4>
-                               <p>{comment.commentPost}</p>
-                                <small>{new Date(comment._createdAt).toLocaleString()}</small>
+                            <div key={comment._id} className="w3-cell w3-border w3-border-black w3-margin-top w3-margin-bottom w3-card w3-third w3-amber w3-round-xlarge">
+                                <h4 className="w3-black">{comment.name}</h4>
+                               <p className="w3-white">{comment.commentPost}</p>
+                                <small className="w3-grey w3-margin">{new Date(comment._createdAt).toLocaleString()}</small>
                             </div>
                         ))
                     ) : (
