@@ -12,6 +12,7 @@ import { createClient } from 'next-sanity'
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
 export const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2022-11-15'
+export const token = process.env.SANITY_API_TOKEN
  
 /**
  * Checks if it's safe to create a client instance, as `@sanity/client` will throw an error if `projectId` is false
@@ -21,6 +22,8 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: false,
+  token
+
 })
 
 

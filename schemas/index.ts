@@ -4,6 +4,7 @@ import character from "./character";
 import page from "./page";
 import post from "./post";
 import staff from "./staff";
+import comments from "./comment";
 
 
-export const schemaTypes = [post, author, category, page, character, staff]
+export const schemaTypes = [comments, post, author, category, page, character, staff]

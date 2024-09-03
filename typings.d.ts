@@ -105,3 +105,10 @@ interface Title {
     _type: "string";
     current: string;
 }
+
+interface Comment extends Base {
+    author: string;
+    text: string;
+    post: Reference;
+    approved: boolean;
+}
