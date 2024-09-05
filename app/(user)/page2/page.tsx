@@ -4,12 +4,13 @@ import { client } from "../../../lib/sanity.client"
 import BlogBox from "../../../components/BlogBox"
 import PortablePost from "../../../components/Modal"
 import Link from "next/link"
+import CategoryMenu from "../../../components/categoryMenu"
 
 export const revalidate = 30
 
 
  const query = groq`
-  *[_type=='post'][21...30]{
+  *[_type=='post'][22...31]{
     ...,
     coverImage,
     author->,
@@ -23,9 +24,11 @@ export default async function Page() {
 const posts = await client.fetch(query)
 
 return<section>
-  <BlogBox posts={posts}  />
+  <CategoryMenu />
+  <article style={{marginRight:"10%"}}>
+     <BlogBox posts={posts}  /> </article>
   <PortablePost posts={posts} ></PortablePost>
-  <Link className="w3-center" href={'https://www.antiblasphemy.studio/'} ><p>Prev Page</p></Link>
+  <Link className="w3-center w3-button w3-amber" href={'/'} ><p>Prev Page</p></Link>
 </section>
 
 }

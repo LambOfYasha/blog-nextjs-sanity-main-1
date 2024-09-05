@@ -6,7 +6,7 @@ export default function Desktop(props: { children: string | number | boolean | R
     <div className=''>
 
 
-<section className='w3-padding-16' >
+<section className=''  >
  
 {props.children}
 </section>

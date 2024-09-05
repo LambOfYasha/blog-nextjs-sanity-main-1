@@ -43,6 +43,8 @@ export function HeaderDT (props: { type: string | number | boolean | React.React
          <h3 className='w3-bar-item w3-hide-small w3-hide-medium w3-center'>AntiBlasphemy Studios</h3>
          <h3 className='w3-bar-item w3-hide-small w3-hide-large w3-large w3-center'>AntiBlasphemy Studios</h3>
 <Banner/>
+
+
 {props.type}
 </header>)
 }
