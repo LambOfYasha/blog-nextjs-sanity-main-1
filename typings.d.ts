@@ -7,6 +7,13 @@ type Base = {
     _updatedAt: string;
 }
 
+interface Gallery extends Base {
+    [x: string]: TypedObject;
+    title: string;
+    images: Image[];
+    description: string;
+}
+
 interface Page extends Base {
     [x: string]: TypedObject;
     title: string;

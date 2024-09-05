@@ -5,6 +5,8 @@ import page from "./page";
 import post from "./post";
 import staff from "./staff";
 import comments from "./comment";
+import gallery from "./gallery";
 
 
-export const schemaTypes = [comments, post, author, category, page, character, staff]
+
+export const schemaTypes = [gallery, comments, post, author, category, page, character, staff]
