@@ -7,6 +7,15 @@ import Image from 'next/image'
 import SignInButton from './SignInButton'
 import { AbsLogo } from '../styles/images'
 import { width } from './OpenGraphImage'
+import { ABSDesktopBanner} from '../styles/images'
+
+
+export function Banner (){
+    return(<section className='w3-black'>
+    <Image src={ABSDesktopBanner} className='w3-image w3-hide-small w3-border-top w3-border-black' alt="ABSBanner" width="2560" height="250" />
+    <h4 className='w3-center w3-hide-small w3-hide-medium w3-black'>#CreativityInTheNameOfChrist</h4>
+    </section>)
+    }
 
 export function HeaderDT (props: { type: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined }){
 
@@ -33,7 +42,7 @@ export function HeaderDT (props: { type: string | number | boolean | React.React
  )})} 
          <h3 className='w3-bar-item w3-hide-small w3-hide-medium w3-center'>AntiBlasphemy Studios</h3>
          <h3 className='w3-bar-item w3-hide-small w3-hide-large w3-large w3-center'>AntiBlasphemy Studios</h3>
-
+<Banner/>
 {props.type}
 </header>)
 }
