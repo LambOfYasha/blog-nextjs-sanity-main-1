@@ -5,13 +5,9 @@ import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import { HeaderTitleBar } from "../../../../styles/styles"
 import { useState, useEffect } from "react"
-<<<<<<< HEAD
-import imageUrlBuilder from "@sanity/image-url"
-import YouTubeEmbed from "../../../../components/YouTubeEmbed"
-=======
 import ImageUrlBuilder from "@sanity/image-url"
 import YouTubeEmbed from "../../../../components/YouTubeembed"
->>>>>>> 3f458f53319cb2b14830656d4eb62aa5029e0d39
+
 
 export const revalidate = 30
 
@@ -44,12 +40,6 @@ type Post = {
     content: any;
 }
 
-<<<<<<< HEAD
-function urlFor(source: any) {
-    return imageUrlBuilder(client).image(source)
-}
-=======
-
 
 
 
@@ -69,19 +59,7 @@ function Post({ params: { slug } }: Props) {
     const [commentPost, setCommentPost] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-<<<<<<< HEAD
 
-    const components = {
-        types: {
-          video: YouTubeEmbed,
-        },
-      };
-  
-      const MyPortableTextComponent = ({ value }: { value: any }) => {
-        return <PortableText value={value} components={components} />;
-      };
-
-=======
   
     
     const components = {
@@ -95,8 +73,6 @@ function Post({ params: { slug } }: Props) {
     };
     
     // Remove the default export from here
-   
->>>>>>> 3f458f53319cb2b14830656d4eb62aa5029e0d39
     useEffect(() => {
         
     
