@@ -58,6 +58,7 @@ function Gallery({ galleryData }: GalleryProps) {
                 className="w3-opacity-min w3-card-4 w3-hover-opacity-off w3-border w3-border-black"
                 style={{ cursor: 'pointer' }}
               ></Image>
+              
             ))}
           </div>
           <p>{item.description}</p>

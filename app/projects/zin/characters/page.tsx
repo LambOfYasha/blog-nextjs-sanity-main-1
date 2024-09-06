@@ -1,4 +1,3 @@
-'use client'
 import { groq } from "next-sanity"
 import {client} from '../../../../lib/sanity.client'
 import Image from "next/image"
@@ -27,10 +26,10 @@ const character: Character = await client.fetch(query)
 
    return (
 
-<article className="w3-hide-small w3-center">
+<article className="w3-hide-small w3-center w3-margin">
     <h4 className={HeaderTitleBar}>ZIN - Characters</h4>
     <ZinMenu/>
-       <div className="w3-bar">
+       <div className="w3-bar ">
          <Tabs variant='enclosed'>
   <TabList>
    {character.map((chrInfo: { avi: any; title: string }, index: Key | null | undefined) => (
