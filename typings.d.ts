@@ -85,10 +85,39 @@ interface Slug {
 
 interface Block {
     _key: string;
-    _type: "block";
-    children: Span[];
-    markDefs: any[];
-    style: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    _type: "block" | "image" | "video";
+    children?: Span[];
+    markDefs?: any[];
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    list?: "bullet" | "number";
+    level?: number;
+    listItem?: "bullet" | "number";
+    isPlaceholder?: boolean;
+    text?: string;
+    asset?: Reference;
+    // Image specific properties
+    caption?: string;
+    alt?: string;
+    // Video specific properties
+    url?: string;
+    autoplay?: boolean;
+    loop?: boolean;
+    muted?: boolean;
+}
+
+interface Image extends Block {
+    _type: "image";
+    asset: Reference;
+    caption?: string;
+    alt?: string;
+}
+
+interface Video extends Block {
+    _type: "video";
+    url: string;
+    autoplay?: boolean;
+    loop?: boolean;
+    muted?: boolean;
 }
 
 interface Span {

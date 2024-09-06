@@ -3,6 +3,7 @@ import { defineField, defineType } from 'sanity'
 import category from './category'
 
 
+
 /**
  * This file is the schema definition for a post.
  *
@@ -41,8 +42,7 @@ export default defineType({
     defineField({
       name: 'content',
       title: 'Content',
-      type: 'array',
-      of: [{ type: 'block' }],
+      type: 'blockContent',
     }),
     defineField({
       name: 'excerpt',

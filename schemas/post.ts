@@ -2,7 +2,6 @@ import { BookIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
-
 /**
  * This file is the schema definition for a post.
  *
@@ -41,8 +40,7 @@ export default defineType({
     defineField({
       name: 'content',
       title: 'Content',
-      type: 'array',
-      of: [{ type: 'block' }],
+      type: 'blockContent',
     }),
     defineField({
       name: 'excerpt',
