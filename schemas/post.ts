@@ -40,7 +40,8 @@ export default defineType({
     defineField({
       name: 'content',
       title: 'Content',
-      type: 'blockContent',
+      type: 'array',
+      of: [{type: 'blockContent'}, {type: 'image'}, {type: 'video'}],
     }),
     defineField({
       name: 'excerpt',
