@@ -6,7 +6,7 @@ import Image from "next/image"
 import { HeaderTitleBar } from "../../../../styles/styles"
 import { useState, useEffect } from "react"
 import ImageUrlBuilder from "@sanity/image-url"
-import video from "../../../../schemas/video"
+import YouTubeEmbed from "../../../../components/YouTubeEmbed"
 
 
 export const revalidate = 30
@@ -63,7 +63,7 @@ function Post({ params: { slug } }: Props) {
     
     const components = {
       types: {
-        video: video,
+        video: YouTubeEmbed,
       },
     };
     
