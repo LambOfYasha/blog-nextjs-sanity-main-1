@@ -8,7 +8,6 @@ import { useState, useEffect } from "react"
 import ImageUrlBuilder from "@sanity/image-url"
 import YouTubeEmbed from "../../../../components/YouTubeEmbed"
 
-
 export const revalidate = 30
 
 type Props = {
