@@ -5,8 +5,13 @@ import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import { HeaderTitleBar } from "../../../../styles/styles"
 import { useState, useEffect } from "react"
+<<<<<<< HEAD
 import imageUrlBuilder from "@sanity/image-url"
 import YouTubeEmbed from "../../../../components/YouTubeEmbed"
+=======
+import ImageUrlBuilder from "@sanity/image-url"
+import YouTubeEmbed from "../../../../components/YouTubeembed"
+>>>>>>> 3f458f53319cb2b14830656d4eb62aa5029e0d39
 
 export const revalidate = 30
 
@@ -39,9 +44,22 @@ type Post = {
     content: any;
 }
 
+<<<<<<< HEAD
 function urlFor(source: any) {
     return imageUrlBuilder(client).image(source)
 }
+=======
+
+
+
+
+function urlFor(source: any) {
+    return ImageUrlBuilder(client).image(source)
+}
+
+
+
+>>>>>>> 3f458f53319cb2b14830656d4eb62aa5029e0d39
 
 function Post({ params: { slug } }: Props) {
     const [post, setPost] = useState<Post | null>(null);
@@ -51,6 +69,7 @@ function Post({ params: { slug } }: Props) {
     const [commentPost, setCommentPost] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+<<<<<<< HEAD
 
     const components = {
         types: {
@@ -62,8 +81,28 @@ function Post({ params: { slug } }: Props) {
         return <PortableText value={value} components={components} />;
       };
 
+=======
+  
+    
+    const components = {
+      types: {
+        video: YouTubeEmbed,
+      },
+    };
+    
+    const MyPortableTextComponent = ({ value }: { value: any }) => {
+      return <PortableText value={value} components={components} />;
+    };
+    
+    // Remove the default export from here
+   
+>>>>>>> 3f458f53319cb2b14830656d4eb62aa5029e0d39
     useEffect(() => {
-        const fetchPostAndComments = async () => {
+        
+    
+        const fetchPostAndComments = async () => { 
+            
+           
             const postQuery = groq`
             *[_type=='post' && slug.current == $slug][0]
             {
@@ -84,6 +123,8 @@ function Post({ params: { slug } }: Props) {
                     }
                 }
             }`
+
+
             const fetchedPost: Post = await client.fetch(postQuery, { slug })
             setPost(fetchedPost)
 
