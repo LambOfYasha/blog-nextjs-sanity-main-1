@@ -60,6 +60,7 @@ const YouTubeEmbed: React.FC<{ value: { url: string } }> = ({ value }) => {
         ></iframe>
       </div>
     );
+}
 
 function urlFor(source: any) {
     return ImageUrlBuilder(client).image(source)
