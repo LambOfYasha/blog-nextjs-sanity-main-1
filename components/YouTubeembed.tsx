@@ -1,6 +1,6 @@
 import React from 'react';
 
- export const YouTubeEmbed: React.FC<{ value: { url: string } }> = ({ value }) => {
+ export default const YouTubeEmbed: React.FC<{ value: { url: string } }> = ({ value }) => {
   const { url } = value;
   if (!url) return null;
 
