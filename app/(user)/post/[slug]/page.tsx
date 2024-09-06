@@ -6,7 +6,7 @@ import Image from "next/image"
 import { HeaderTitleBar } from "../../../../styles/styles"
 import { useState, useEffect } from "react"
 import ImageUrlBuilder from "@sanity/image-url"
-import YouTubeEmbed from "../../../../components/YouTubeembed"
+import YouTubeEmbed from "../../../../components/YouTubeEmbed"
 
 
 export const revalidate = 30
@@ -49,7 +49,6 @@ function urlFor(source: any) {
 
 
 
->>>>>>> 3f458f53319cb2b14830656d4eb62aa5029e0d39
 
 function Post({ params: { slug } }: Props) {
     const [post, setPost] = useState<Post | null>(null);
