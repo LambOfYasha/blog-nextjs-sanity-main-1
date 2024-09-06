@@ -52,7 +52,7 @@ export default {
             },
         },
         {
-            type: 'pic',
+            type: 'image',
             options: { hotspot: true },
         },
         {

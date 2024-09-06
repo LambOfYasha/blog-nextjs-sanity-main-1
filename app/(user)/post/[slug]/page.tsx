@@ -3,9 +3,12 @@ import { groq } from "next-sanity"
 import { client } from '../../../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
-import urlFor from "../../../../lib/urlFor"
 import { HeaderTitleBar } from "../../../../styles/styles"
 import { useState, useEffect } from "react"
+import imageUrlBuilder from "@sanity/image-url"
+import YouTubeEmbed from "../../../../components/YouTubeEmbed"
+
+export const revalidate = 30
 
 type Props = {
     params: {
@@ -36,7 +39,9 @@ type Post = {
     content: any;
 }
 
-export const revalidate = 30
+function urlFor(source: any) {
+    return imageUrlBuilder(client).image(source)
+}
 
 function Post({ params: { slug } }: Props) {
     const [post, setPost] = useState<Post | null>(null);
@@ -45,6 +50,17 @@ function Post({ params: { slug } }: Props) {
     const [email, setEmail] = useState('');
     const [commentPost, setCommentPost] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+
+    const components = {
+        types: {
+          video: YouTubeEmbed,
+        },
+      };
+  
+      const MyPortableTextComponent = ({ value }: { value: any }) => {
+        return <PortableText value={value} components={components} />;
+      };
 
     useEffect(() => {
         const fetchPostAndComments = async () => {
@@ -55,7 +71,18 @@ function Post({ params: { slug } }: Props) {
                 author->,
                 picture,
                 mainImage,
-                categories[]->
+                categories[]->,
+                "content": content[]{
+                    ...,
+                    _type == 'image' => {
+                    "url": asset->url,
+                    "alt": alt
+                    },
+                    _type == 'video' => {
+                    "url": url,
+                    "caption": caption
+                    }
+                }
             }`
             const fetchedPost: Post = await client.fetch(postQuery, { slug })
             setPost(fetchedPost)
@@ -144,7 +171,7 @@ function Post({ params: { slug } }: Props) {
             </section>
             <section className="w3-margin w3-left">
                 <Image className="w3-image" width={700} height={350} src={urlFor(post.coverImage).url()} alt={post.author.name} />
-                <PortableText value={post.content} />
+                <MyPortableTextComponent value={post.content} />
             </section>
             <section className="w3-margin w3-left">
                 <h3 className="w3-border-top w3-border-black w3-margin-top">Comments</h3>
