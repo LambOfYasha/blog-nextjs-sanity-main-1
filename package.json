@@ -43,7 +43,7 @@
     "react-modal": "^3.16.1",
     "react-portable-text": "^0.6.0",
     "react-tabs": "^6.0.1",
-    "sanity": "^3.28.0",
+    "sanity": "^3.57.0",
     "sanity-plugin-asset-source-unsplash": "1.0.6",
     "styled-components": "^6.1.13",
     "suspend-react": "0.0.9",
