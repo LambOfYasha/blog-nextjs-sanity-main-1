@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html  lang="en">
-      <body  style={{minHeight:"100vh"}}>
+      <body className="w3-mobile w3-container" style={{minHeight:"100vh"}}>
         <Providers>
           <HeaderDT type={undefined}/> 
 

@@ -25,7 +25,7 @@ const posts = await client.fetch(query)
 
 return<section>
   <CategoryMenu />
-  <article style={{marginRight:"10%"}}>
+  <article className="w3-mobile" style={{marginRight:"10%"}}>
      <BlogBox posts={posts}  /> </article>
   <PortablePost posts={posts} ></PortablePost>
   <Link className="w3-center w3-button w3-amber" href={'/'} ><p>Prev Page</p></Link>

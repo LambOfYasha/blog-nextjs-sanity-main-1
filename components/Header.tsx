@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import * as Navigation from '../styles/styles'
 import Link from 'next/link'
@@ -9,6 +10,15 @@ import { AbsLogo } from '../styles/images'
 import { width } from './OpenGraphImage'
 import { ABSDesktopBanner} from '../styles/images'
 
+
+function myClick() {
+    var x = document.getElementById("Click");
+    if (x.className.indexOf("w3-show") == -1) { 
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
 
 export function Banner (){
     return(<section className='w3-black'>
@@ -22,7 +32,7 @@ export function HeaderDT (props: { type: string | number | boolean | React.React
 
     return (<header className={Navigation.NavBarDT} >
 
-    <Image src={AbsLogo} className='w3-image w3-hide-large w3-hide-medium' alt="ABSBanner" width="250" height="50" />
+    <Image src={AbsLogo} className='w3-image w3-hide-large w3-hide-medium' alt="ABSBanner" width="350" height="150" />
 
 {/* <SignInButton/> */}
         {NavLinks.map((nlinks) => {
@@ -34,12 +44,15 @@ export function HeaderDT (props: { type: string | number | boolean | React.React
     return (<button key={nlinks.id} className={Navigation.NavButtonTab} style={{width: 'auto'}}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
- )})} 
+ )})}  
+<section className='w3-hide-large w3-hide-medium w3-dropdown-click'>
+<button onClick={myClick} className='w3-button w3-hide-large w3-hide-medium w3-amber' style={{width: 'auto'}}>Navigation</button>
+<section id="Click" className='w3-dropdown-content w3-hide-large w3-hide-medium w3-bar-block w3-card-4'>
   {NavLink2.map((nlinks) => {
     return (<button key={nlinks.id} className={Navigation.NavButtonMobile} style={{width: '22%'}}>
         <Link  href={nlinks.href}>{nlinks.link}</Link>
     </button>
- )})} 
+ )})} </section></section>
          <h3 className='w3-bar-item w3-hide-small w3-hide-medium w3-center'>AntiBlasphemy Studios</h3>
          <h3 className='w3-bar-item w3-hide-small w3-hide-large w3-large w3-center'>AntiBlasphemy Studios</h3>
 <Banner/>

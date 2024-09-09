@@ -32,11 +32,11 @@ export default async function Page(){
 
    return (
  
-<article className=" w3-center">
+<article className="w3-mobile w3-container w3-center">
     <h4 className={HeaderTitleBarMobile}>Home</h4>
      <BlogBox posts={posts}  />
      <BlogBox posts={posts2}  />
-     <Link className="w3-center" href={'https://www.antiblasphemy.studio/page2'} ><p>Next Page</p></Link>
+     <Link className="w3-center w3-button w3-amber" href={'/mobile/page2'} ><p>Next Page</p></Link>
 
 </article> 
 )

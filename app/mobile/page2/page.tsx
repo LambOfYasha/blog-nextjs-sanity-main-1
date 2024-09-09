@@ -21,10 +21,10 @@ export default async function Page() {
 
 
 const posts = await client.fetch(query)
-return<section>
+return<section className="w3-mobile w3-container w3-center">
     <h4 className={HeaderTitleBarMobile}>Home</h4>
   <BlogBox posts={posts}  />
-  <Link className="w3-center" href={'https://www.antiblasphemy.studio/'} ><p>Prev Page</p></Link>
+  <Link className="w3-center w3-button w3-amber" href={'/mobile'} ><p>Prev Page</p></Link>
 </section>}
 
 

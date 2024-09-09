@@ -168,7 +168,7 @@ function Post({ params: { slug } }: Props) {
         <article>
             <section>
                 <div className={HeaderTitleBar}>{post.title}</div>
-                <div className="w3-card-4 w3-cell w3-border w3-border-black w3-amber">
+                <div className="w3-mobile w3-card-4 w3-cell w3-border w3-border-black w3-amber">
                     <div className="w3-amber w3-center">
                         <Image className="w3-circle w3-border w3-border-black" width={90} height={80} src={urlFor(post.author.picture).url()} alt={post.author.name} />
                     </div>
@@ -183,13 +183,13 @@ function Post({ params: { slug } }: Props) {
                     )}
                 </div>
             </section>
-            <section className="w3-margin w3-left">
+            <section className="w3-mobile w3-margin w3-left">
                 <Image className="w3-image" width={700} height={350} src={urlFor(post.coverImage).url()} alt={post.author.name} />
                 <MyPortableTextComponent value={post.content} />
             </section>
-            <section className="w3-margin w3-left">
+            <section className="w3-mobile w3-margin w3-left">
                 <h3 className="w3-border-top w3-border-black w3-margin-top">Comments</h3>
-                <form className="w3-amber w3-cell w3-border w3-border-black" onSubmit={handleSubmit}>
+                <form className="w3-mobile w3-amber w3-cell w3-border w3-border-black" onSubmit={handleSubmit}>
                     <label htmlFor="name">Name:</label>
                     <input 
                         type="text" 
