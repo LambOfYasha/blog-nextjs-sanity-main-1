@@ -12,11 +12,13 @@ import { ABSDesktopBanner} from '../styles/images'
 
 
 function myClick() {
-    var x = document.getElementById("Click");
-    if (x.className.indexOf("w3-show") == -1) { 
-      x.className += " w3-show";
-    } else {
-      x.className = x.className.replace(" w3-show", "");
+    const x = document.getElementById("Click");
+    if (x) {
+        if (!x.className.includes("w3-show")) { 
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
     }
   }
 
