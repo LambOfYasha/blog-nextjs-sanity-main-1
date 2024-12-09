@@ -1,0 +1,30 @@
+.homeimg {
+  background-image: url('/assets/ABMinistriesHero.png');
+  min-height: 100%;
+}
+
+#home {
+  background-image: url('/assets/ABMinistriesHero.png');
+  position:absolute;
+  background-size: cover;
+  min-height: 100%;
+  top: 100px;
+  left: -20px;
+  width: 100%;
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  #home {
+    display: block;
+  }
+  #title {
+  font-size: 25px;
+  margin: 0px;
+  padding: 0px;
+  }
+  
+
+
+
+}

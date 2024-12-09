@@ -1,11 +1,7 @@
 import {NextAuthOptions} from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google'
+import Auth0Provider from 'next-auth/providers/auth0';
 import { db } from './db';
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import CredentialsProvider from "next-auth/providers/credentials"
-import { compare } from 'bcrypt';
-
-
 
 export const authOptions: NextAuthOptions = {
     adapter: PrismaAdapter(db),
@@ -13,61 +9,17 @@ export const authOptions: NextAuthOptions = {
         signIn: '/sign-in'
     },
     providers: [
-        CredentialsProvider({
-            name: "Sign In",
-            credentials: {
-                username: {
-                    label: "Username",
-                    type: "username"
-                },
-                email: {
-                    label: "Email",
-                    type: "email",
-                    placeholder: "example@example.com"
-                },
-                password: {
-                    label: "Password",
-                    type: "password"
-                },
-            },
-                 async authorize(credentials){
-                    if(!credentials?.email || !credentials?.password){
-                    return null
-                 }
-
-                    const existingUser = await db.user.findUnique({
-                        where: {email: credentials?.email}
-                    })
-                    if(!existingUser){
-                        return null
-                    }
-                    const passwordMatch = await compare(credentials.password, existingUser.password)
-                    if(!passwordMatch){
-                        return null
-                    }
-
-                    return {
-                      id: existingUser.id + '',
-                      username: existingUser.username,
-                      email:  existingUser.email
-                    }
- 
-                }, 
-            }),
-            GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-        
+        Auth0Provider({
+            clientId: process.env.AUTH0_CLIENT_ID as string,
+            clientSecret: process.env.AUTH0_CLIENT_SECRET as string,
+            issuer: process.env.AUTH0_ISSUER_BASE_URL,
         })
     ],
-
     session: {
         strategy: "jwt",
     },
-    secret: process.env.NEXTAUTH_SECRET,
-     debug: process.env.NODE_ENV === 'development',
-        
+    secret: process.env.AUTH0_SECRET,
+    debug: process.env.NODE_ENV === 'development',
 }
-
 
 export default authOptions

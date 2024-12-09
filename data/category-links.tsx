@@ -6,34 +6,30 @@ const NavLink2 = [
     },
     {
         id: 2,
-        href: "/categories/news/company",
-        link: "Company News",
+        href: "/categories/news/ministry",
+        link: "Ministry News",
     }, 
 
     {
         id: 3,
-        href: "/categories/news/projects/greedy-salvation",
-        link: "Greedy Salvation News",
+        href: "/categories/news/prophetic",
+        link: "Prophetic News",
     },
-
+    
+    
     {
         id: 4,
-        href: "/categories/news/projects/zin",
-        link: "ZIN News",
-    },
-    
-    {
-        id: 5,
-        href: "/categories/ministry",
-        link: "ABS Ministry",
-    },
-   
-    
-    {
-        id: 6,
         href: "/categories/news/christian",
         link: "Christian News",
-    }
+    },
+  
+    {
+        id: 6,
+        href: "/categories/ministry",
+        link: "AB Ministry",
+    },
+   
+  
 ] 
 
 export default NavLink2

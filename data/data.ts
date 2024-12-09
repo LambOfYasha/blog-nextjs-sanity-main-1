@@ -9,47 +9,22 @@ const NavLinks = [
         href: "/about",
         link: "About",
     }, 
-
     {
         id: 3,
-        href: "/projects",
-        link: "Projects",
+        href: "/ministry",
+        link: "Ministry",
     },
-    // {
-    //     id: 4,
-    //     href: "/services",
-    //     link: "Services",
-    // },
-    
     {
-        id: 5,
-        href: "/contact",
-        link: "Contact",
-    },
-   
-    
-    {
-        id: 6,
-        href: "https://www.antiblasphemystudios.com",
-        link: "Merch",
-    },
-
-
-    // {
-    //     id: 7,
-    //     href: "/member",
-    //     link: "Members",
-    // },
-    {
-        id: 8,
+        id: 4,
         href: "/staff",
         link: "Staff",
     },
     {
-        id: 9,
-        href: "/mobile",
-        link: "Mobile",
+        id: 5,
+        href: "/contact",
+        link: "Contact",
     }
+  
 
 ]
 

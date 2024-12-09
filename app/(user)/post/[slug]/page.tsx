@@ -3,10 +3,10 @@ import { groq } from "next-sanity"
 import { client } from '../../../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
-import { HeaderTitleBar } from "../../../../styles/styles"
 import { useState, useEffect } from "react"
 import ImageUrlBuilder from "@sanity/image-url"
-import  YouTubeEmbed from "../../../../components/YouTubeEmbed"
+import YouTubeEmbed from "../../../../components/YouTubeEmbed"
+import { useForm, SubmitHandler } from "react-hook-form"
 
 export const revalidate = 30
 
@@ -18,12 +18,13 @@ type Props = {
 
 type Comment = {
     _id: string;
-    _createdAt: string;
     name: string;
+    email: string;
     commentPost: string;
 }
 
 type Post = {
+    _updatedAt: string | number | Date
     _id: string;
     title: string;
     author: {
@@ -39,25 +40,22 @@ type Post = {
     content: any;
 }
 
-
+type FormInputs = {
+    name: string;
+    email: string;
+    commentPost: string;
+}
 
 function urlFor(source: any) {
     return ImageUrlBuilder(client).image(source)
 }
 
-
-
-
 function Post({ params: { slug } }: Props) {
     const [post, setPost] = useState<Post | null>(null);
     const [comments, setComments] = useState<Comment[]>([]);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [commentPost, setCommentPost] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-
-  
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<FormInputs>();
     
     const components = {
       types: {
@@ -69,13 +67,8 @@ function Post({ params: { slug } }: Props) {
       return <PortableText value={value} components={components} />;
     };
     
-    // Remove the default export from here
     useEffect(() => {
-        
-    
         const fetchPostAndComments = async () => { 
-            
-           
             const postQuery = groq`
             *[_type=='post' && slug.current == $slug][0]
             {
@@ -97,7 +90,6 @@ function Post({ params: { slug } }: Props) {
                 }
             }`
 
-
             const fetchedPost: Post = await client.fetch(postQuery, { slug })
             setPost(fetchedPost)
 
@@ -107,7 +99,7 @@ function Post({ params: { slug } }: Props) {
                 {
                     ...,
                     _id,
-                    _createdAt,
+                    _updatedAt,
                     name,
                     commentPost
                 }`
@@ -118,44 +110,41 @@ function Post({ params: { slug } }: Props) {
         fetchPostAndComments()
     }, [slug])
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (name && email && commentPost && post) {
-            setIsSubmitting(true);
-            try {
-                const res = await fetch('/api/createComment', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        _id: post._id,
-                        name,
-                        email,
-                        commentPost,
-                    }),
-                });
+    const onSubmit: SubmitHandler<FormInputs> = async (data) => {
+        if (!post) return;
+        
+        setIsSubmitting(true);
+        try {
+            const res = await fetch('/api/createComment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    _id: post._id,
+                    name: data.name,
+                    email: data.email,
+                    commentPost: data.commentPost, // Fixed: Changed from comment to commentPost to match API expectations
+                }),
+            });
 
-                if (res.ok) {
-                    setName('');
-                    setEmail('');
-                    setCommentPost('');
-                    alert('Your comment has been submitted for approval.');
-                } else {
-                    const errorData = await res.json();
-                    console.error('Server response:', errorData);
-                    throw new Error(`Failed to submit comment: ${res.status} ${res.statusText}`);
-                }
-            } catch (error) {
-                console.error('Error submitting comment:', error);
-                if (error instanceof Error) {
-                    console.error('Error message:', error.message);
-                    console.error('Error stack:', error.stack);
-                }
-                alert(`There was an error submitting your comment: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again.`);
-            } finally {
-                setIsSubmitting(false);
+            if (res.ok) {
+                reset(); // Clear form
+                alert('Your comment has been submitted for approval.');
+            } else {
+                const errorData = await res.json();
+                console.error('Server response:', errorData);
+                throw new Error(`Failed to submit comment: ${res.status} ${res.statusText}`);
             }
-        } else {
-            console.error('Form validation failed:', { name, email, commentPost, postId: post?._id });
-            alert('Please fill in all fields before submitting.');
+        } catch (error) {
+            console.error('Error submitting comment:', error);
+            if (error instanceof Error) {
+                console.error('Error message:', error.message);
+                console.error('Error stack:', error.stack);
+            }
+            alert(`There was an error submitting your comment: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again.`);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -165,16 +154,23 @@ function Post({ params: { slug } }: Props) {
     }
 
     return (
-        <article>
+        <article className="w3-mobile">
+
+{/* //Post Content Section */}
+            <section className="w3-mobile w3-margin w3-center w3-text-amber w3-large">
+                
+                {/* //Post Title Section */}
             <section>
-                <div className={HeaderTitleBar}>{post.title}</div>
-                <div className="w3-mobile w3-card-4 w3-cell w3-border w3-border-black w3-amber">
+                <div className="w3-mobile w3-xxlarge w3-card-4 w3-text-amber w3-border-bottom w3-border-top w3-border-amber">{post.title}</div>
+                <Image className="w3-image" width={700} height={350} src={urlFor(post.coverImage).url()} alt={post.author.name} />
+
+                <div className="w3-mobile w3-card-4 w3-cell w3-border w3-border-amber w3-black">
                     <div className="w3-amber w3-center">
-                        <Image className="w3-circle w3-border w3-border-black" width={90} height={80} src={urlFor(post.author.picture).url()} alt={post.author.name} />
+                        <Image className="w3-circle w3-border w3-border-black" width={150} height={140} src={urlFor(post.author.picture).url()} alt={post.author.name} />
                     </div>
-                    <div className="w3-black">By: {post.author.name}</div>
-                    <div className="w3-grey">{new Date(post._createdAt).toLocaleDateString("en-US", {
-                        day: "numeric",
+                    <div className="w3-black w3-text-amber w3-large">By: {post.author.name}</div>
+                    <div className="w3-grey w3-large">{new Date(post._updatedAt).toLocaleDateString("en-US", {
+                        day: "numeric", 
                         month: "long",
                         year: "numeric",
                     })}</div>
@@ -183,50 +179,55 @@ function Post({ params: { slug } }: Props) {
                     )}
                 </div>
             </section>
-            <section className="w3-mobile w3-margin w3-left">
-                <Image className="w3-image" width={700} height={350} src={urlFor(post.coverImage).url()} alt={post.author.name} />
                 <MyPortableTextComponent value={post.content} />
             </section>
-            <section className="w3-mobile w3-margin w3-left">
-                <h3 className="w3-border-top w3-border-black w3-margin-top">Comments</h3>
-                <form className="w3-mobile w3-amber w3-cell w3-border w3-border-black" onSubmit={handleSubmit}>
+
+{/* //Comments Section */}
+            <section className="w3-mobile w3-margin w3-center w3-border w3-border-amber w3-card-4 w3-text-amber">
+                <h3 className=" w3-margin-top w3-border-bottom w3-border-amber">Comment Section</h3>
+                <form className="w3-mobile w3-black w3-text-amber w3-cell w3-border w3-border-black" onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="name">Name:</label>
                     <input 
+                        {...register("name", { required: true })}
                         type="text" 
                         id="name" 
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required 
                         disabled={isSubmitting}
+                        className="w3-input w3-border w3-border-amber w3-light-grey"
                     />
+                    {errors.name && <span className="w3-text-red">Name is required</span>}
+                    
                     <label htmlFor="email">Email:</label>
                     <input 
+                        {...register("email", { 
+                            required: true,
+                            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i 
+                        })}
                         type="email" 
                         id="email" 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required 
                         disabled={isSubmitting}
+                        className="w3-input w3-border w3-border-amber w3-light-grey"
                     />
-                    <label htmlFor="comment">Comment:</label>
+                    {errors.email && <span className="w3-text-red">Valid email is required</span>}
+                    
+                    <label htmlFor="commentPost">Comment:</label>
                     <textarea 
-                        id="comment" 
-                        value={commentPost}
-                        onChange={(e) => setCommentPost(e.target.value)}
-                        required
+                        {...register("commentPost", { required: true })}
+                        id="commentPost" 
                         disabled={isSubmitting}
+                        className="w3-input w3-border w3-border-amber w3-light-grey"
                     ></textarea>
-                    <button className="w3-button w3-white w3-hover-light-grey" type="submit" disabled={isSubmitting}>
+                    {errors.commentPost && <span className="w3-text-red">Comment is required</span>}
+                    
+                    <button className="w3-button w3-black w3-text-amber w3-hover-amber w3-border w3-border-amber" type="submit" disabled={isSubmitting}>
                         {isSubmitting ? 'Submitting...' : 'Submit Comment'}
                     </button>
                 </form>
-                <div>
+                <div className="w3-mobile w3-text-amber w3-margin-top w3-border w3-border-amber w3-black">
                     {comments.length > 0 ? (
                         comments.map((comment) => (
-                            <div key={comment._id} className="w3-cell w3-border w3-border-black w3-margin-top w3-margin-bottom w3-card w3-third w3-amber w3-round-xlarge">
-                                <h4 className="w3-black">{comment.name}</h4>
-                               <p className="w3-white">{comment.commentPost}</p>
-                                <small className="w3-grey w3-margin">{new Date(comment._createdAt).toLocaleString()}</small>
+                            <div key={comment._id} className="w3-mobile w3-border w3-border-amber w3-margin w3-card w3-rest w3-black w3-round-xlarge">
+                                <h4 className="w3-text-amber w3-border-bottom w3-border-amber">{comment.name}</h4>
+                                <p className="w3-text-amber">{comment.commentPost}</p>
                             </div>
                         ))
                     ) : (
@@ -234,6 +235,7 @@ function Post({ params: { slug } }: Props) {
                     )}
                 </div>
             </section>
+        
         </article>
     )
 }

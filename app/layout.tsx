@@ -1,11 +1,13 @@
-import Footer from '../components/Footer'
-import { HeaderDT } from '../components/Header'
+import Header from '../components/Header'
+import * as Navigation from '../styles/styles'
 import Providers from '../components/Providers'
 import '../styles/w3css.css'
+import '../styles/globals.css'
+
 
 export const metadata = {
-  title: 'AB Studios',
-  description: 'A Christian Fictional Multimedia Company',
+  title: 'AntiBlasphemy Ministries',
+  description: 'A Christian Website',
   icons: {
     icon: ['/favicon.ico?v=4'],
     apple: ['/apple.png?v=4'],
@@ -13,22 +15,21 @@ export const metadata = {
   }
 } 
 
+
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html  lang="en">
-      <body className="w3-mobile w3-container" style={{minHeight:"100vh"}}>
-        <Providers>
-          <HeaderDT type={undefined}/> 
-
-          {children}  
-          
+    <html  lang="en">                     
+<body className="w3-mobile w3-black" style={{minHeight:"100vh"}}>
+                  <Providers> 
+  
+             {children}  
           </Providers>
           </body>
-<Footer settings="w3-center w3-white w3-border w3-border-black" />
     </html>
   )
 }

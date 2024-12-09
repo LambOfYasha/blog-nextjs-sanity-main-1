@@ -39,7 +39,8 @@ export default defineType({
       type: 'boolean',
       initialValue: false,
     }),
-  ],
+  ], 
+ 
   preview: {
     select: {
       title: 'content',
@@ -55,4 +56,5 @@ export default defineType({
       }
     },
   },
+
 })
