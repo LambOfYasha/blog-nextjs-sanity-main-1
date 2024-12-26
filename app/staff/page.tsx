@@ -2,7 +2,7 @@
 import { groq } from "next-sanity"
 import {client} from '../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
-import { Center, Square, Circle } from '@chakra-ui/react'
+import { Center } from '@chakra-ui/react'
 import Image from "next/image"
 import urlFor from "../../lib/urlFor"
 import React from "react"
