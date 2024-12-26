@@ -3,8 +3,7 @@ import {client} from '../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
 import MinistryNav1 from "../../data/ministrynav"
 import Link from "next/link"
-// import Image from "next/image"
-// import urlFor from "../../lib/urlFor"
+
 
 export const revalidate = 30
 

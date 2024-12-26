@@ -10,11 +10,11 @@
         link: "Beginner Introduction (Part 2)",
     }, 
 
-    // {
-    //     id: 3,
-    //     href: "/post/beginner-introduction-part-3",
-    //     link: "Beginner Introduction (Part 3)",
-    // },
+    {
+        id: 3,
+        href: "/post/beginner-introduction-part-3",
+        link: "Beginner Introduction (Part 3)",
+    },
     // {
     //     id: 4,
     //     href: "/post/core-concepts",
