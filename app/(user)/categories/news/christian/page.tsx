@@ -1,10 +1,9 @@
 import React from "react"
 import { groq } from "next-sanity"
 import { client } from "../../../../../lib/sanity.client"
-import BlogBox from "../../../../../components/BlogBox"
-import PortablePost from "../../../../../components/Modal"
 import Link from "next/link"
 import CategoryMenu from "../../../../../components/categoryMenu"
+import ArticleBox from "../../../../../components/WebElements/ArticleBox"
 
 export const revalidate = 30
 
@@ -25,11 +24,10 @@ const posts = await client.fetch(query)
 
 return<section>
  <CategoryMenu />
-  <article style={{marginRight:"10%"}}>
-     <BlogBox posts={posts}  /> </article>
-  <PortablePost posts={posts} ></PortablePost>
-  <Link className="w3-center w3-button w3-amber" href={'/'} ><p>Home</p></Link>
-</section>
+ <ArticleBox posts={posts} ></ArticleBox>
+
+ <Link className="w3-center w3-button w3-amber w3-hover-black w3-hover-text-amber w3-border w3-border-black w3-hover-border-amber" href={'/'} ><p>Home</p></Link>
+ </section>
 
 }
 

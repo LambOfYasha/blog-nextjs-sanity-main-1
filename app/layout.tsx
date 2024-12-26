@@ -1,5 +1,4 @@
-import Header from '../components/Header'
-import * as Navigation from '../styles/styles'
+
 import Providers from '../components/Providers'
 import '../styles/w3css.css'
 import '../styles/globals.css'

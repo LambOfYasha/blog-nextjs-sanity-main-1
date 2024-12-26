@@ -9,7 +9,7 @@ export const revalidate = 30
 
 
  const query = groq`
-  *[_type=='post' && references(*[_type=="category" && title == "Company News"]._id)]{
+  *[_type=='post' && references(*[_type=="category" && title == "Ministry News"]._id)]{
     ...,
     coverImage,
     author->,
