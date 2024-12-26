@@ -21,7 +21,6 @@ export default async function Page() {
 const posts = await client.fetch(query)
 
 return<section>
-  <h4 className="w3-center w3-text-amber w3-border-bottom w3-border-top w3-border-amber">{posts[0].categories[0].title}</h4>
  <CategoryMenu />
 
        <ArticleBox posts={posts} ></ArticleBox>
