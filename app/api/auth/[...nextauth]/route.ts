@@ -1,6 +1,17 @@
 import NextAuth from "next-auth"
-import authOptions from "../../../../lib/auth" // Your auth configuration
+import GoogleProvider from "next-auth/providers/google"
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth({
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
+  ],
+  // Use JWT strategy instead of database
+  session: {
+    strategy: 'jwt'
+  },
+})
 
 export { handler as GET, handler as POST }
