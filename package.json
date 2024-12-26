@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "postinstall": "prisma generate",
     "build": "next build",
     "dev": "next",
     "format": "npx prettier --write . --ignore-path .gitignore --cache",
