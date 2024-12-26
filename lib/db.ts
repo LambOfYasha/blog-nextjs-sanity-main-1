@@ -6,6 +6,10 @@ export const client = createClient({
   apiVersion: '2023-05-03',
   useCdn: false,
   token: process.env.SANITY_API_TOKEN,
+  withCredentials: true,
+  cors: {
+    credentials: 'include',
+  },
 })
 
 export const db = client
