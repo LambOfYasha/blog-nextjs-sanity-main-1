@@ -1,25 +1,25 @@
-import {NextAuthOptions} from 'next-auth';
+import type { NextAuthOptions } from "next-auth";
 import Auth0Provider from 'next-auth/providers/auth0';
-import { db } from './db';
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
-    adapter: PrismaAdapter(db),
-    pages: {
-        signIn: '/sign-in'
-    },
-    providers: [
-        Auth0Provider({
-            clientId: process.env.AUTH0_CLIENT_ID as string,
-            clientSecret: process.env.AUTH0_CLIENT_SECRET as string,
-            issuer: process.env.AUTH0_ISSUER_BASE_URL,
-        })
-    ],
-    session: {
-        strategy: "jwt",
-    },
-    secret: process.env.AUTH0_SECRET,
-    debug: process.env.NODE_ENV === 'development',
-}
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
+    Auth0Provider({
+      clientId: process.env.AUTH0_CLIENT_ID!,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET!,
+      issuer: process.env.AUTH0_ISSUER
+    })
+  ],
+  // Use JWT strategy instead of database
+  session: {
+    strategy: 'jwt'
+  },
+  // Add any additional configuration here
+  secret: process.env.NEXTAUTH_SECRET,
+};
 
-export default authOptions
+export default authOptions;
