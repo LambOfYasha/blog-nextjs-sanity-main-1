@@ -15,11 +15,11 @@
         href: "/post/beginner-introduction-part-3",
         link: "Beginner Introduction (Part 3)",
     },
-    // {
-    //     id: 4,
-    //     href: "/post/core-concepts",
-    //     link: "Core Concepts: Grace, Justification, Sanctification, and Salvation",
-    // },
+    {
+        id: 4,
+        href: "/post/core-concepts",
+        link: "Core Concepts: Belief, Grace, Justification, Sanctification, and Salvation",
+    },
     
     // {
     //     id: 5,
