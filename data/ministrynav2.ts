@@ -3,7 +3,7 @@
 
         {
         id: 1,
-        href: "/post/prophecy-101",
+        href: "/ministry/prophecy-101",
         link: "Prophecy 101",
     },
    

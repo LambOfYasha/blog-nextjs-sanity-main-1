@@ -27,11 +27,7 @@
     //     link: "The Six Steps of Sanctification",
     // },
 
-        // {
-    //     id: 6,
-    //     href: "/prophecy-101",
-    //     link: "Prophecy 101",
-    // },
+   
    
     
    
