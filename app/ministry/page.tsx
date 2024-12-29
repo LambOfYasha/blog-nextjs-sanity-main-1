@@ -2,6 +2,7 @@ import { groq } from "next-sanity"
 import {client} from '../../lib/sanity.client'
 import { PortableText } from "@portabletext/react"
 import MinistryNav1 from "../../data/ministrynav"
+import MinistryNav2 from "../../data/ministrynav2"
 import Link from "next/link"
 
 
@@ -37,8 +38,11 @@ const page: Page = await client.fetch(query)
         ))}
         </ul>
         <h3>| Intermediate Courses |</h3>
-        <ul className="w3-text-amber " >Coming Soon</ul>
-        <h3>| Advanced Courses |</h3>
+        <ul className="w3-text-amber " >
+        {MinistryNav2.map((item) => (
+            <ul><Link href={item.href}>{item.link}</Link></ul>
+        ))}
+        </ul>        <h3>| Advanced Courses |</h3>
         <ul className="w3-text-amber " >Coming Soon</ul>
     </section>
 </article>
