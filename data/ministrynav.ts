@@ -21,10 +21,15 @@
         link: "Core Concepts: Belief, Grace, Justification, Sanctification, and Salvation",
     },
     
+    {
+        id: 5,
+        href: "/post/the-six-steps",
+        link: "The Six Steps of Sanctification",
+    },
     // {
-    //     id: 5,
-    //     href: "/post/the-six-steps-of-sanctification",
-    //     link: "The Six Steps of Sanctification",
+    //     id: 6,
+    //     href: "/post/congregation",
+    //     link: "The criteria for a congregation",
     // },
 
    
