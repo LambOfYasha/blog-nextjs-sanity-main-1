@@ -26,11 +26,11 @@
         href: "/post/the-six-steps",
         link: "The Six Steps of Sanctification",
     },
-    // {
-    //     id: 6,
-    //     href: "/post/congregation",
-    //     link: "The criteria for a congregation",
-    // },
+    {
+        id: 6,
+        href: "/post/congregation",
+        link: "The criteria for a congregation",
+    }
 
    
    

@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
   },
+  transpilePackages: ['next-auth'],
 }
 
 export default nextConfig
