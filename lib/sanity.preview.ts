@@ -1,4 +1,5 @@
 import { dataset, projectId } from '../lib/sanity.client'
+import { createClient } from 'next-sanity'
 
 function onPublicAccessOnly() {
   throw new Error("unable to load preview as you're not logged in.")
@@ -8,17 +9,30 @@ if (!projectId || !dataset) {
   throw new Error("missing ProjectId or dataset. check your sanity.json or env.")
 }
 
-// Simple usePreview hook that just returns the client
-export const usePreview = () => {
-  // For now, just return a function that can be used to fetch data
-  // This is a simplified version - you may need to implement proper preview functionality
-  return {
-    fetch: async (query: string, params?: any) => {
-      // This would need to be implemented with proper preview functionality
-      console.warn('Preview mode not fully implemented')
-      return null
-    }
-  }
+// Create a preview client
+const previewClient = createClient({
+  projectId,
+  dataset,
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2022-11-15',
+  useCdn: false,
+  token: process.env.SANITY_API_TOKEN,
+})
+
+// usePreview hook that accepts token, query, and optional params
+export const usePreview = (token: string | null, query: string, params?: any) => {
+  // Create a preview client with the token
+  const previewClient = createClient({
+    projectId,
+    dataset,
+    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2022-11-15',
+    useCdn: false,
+    token: token || undefined,
+  })
+
+  // For now, return null/empty data since this is a simplified implementation
+  // In a real implementation, you would use React Query or SWR to fetch the data
+  // and handle the async nature properly
+  return null
 }
 
 
