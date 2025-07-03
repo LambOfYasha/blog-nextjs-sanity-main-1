@@ -1,2 +1,9 @@
-// Re-export `NextStudioHead` as default if you're happy with the default behavior
-export {NextStudioHead as default} from 'next-sanity/studio/head'
+// Simple head component for the studio
+export default function StudioHead() {
+  return (
+    <>
+      <title>Sanity Studio</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </>
+  )
+}
