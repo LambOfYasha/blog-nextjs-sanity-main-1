@@ -41,11 +41,43 @@ const posts = await client.fetch(query)
 return<section >
 
   
-<article id="home" className="w3-mobile w3-hide-medium w3-hide-small w3-container">   <ArticleBox posts={posts} /></article>
 
-<article className="w3-mobile w3-hide-large w3-container w3-tiny">   <ArticleBox posts={posts} /></article>
+
+
+<article>
+  <div style={{ position: 'relative' }}>
+    <iframe
+      width="1920"
+      height="1080"
+      src="https://www.youtube.com/embed/zr6IpUM7p7M?autoplay=1&loop=1&playlist=zr6IpUM7p7M"
+      title="YouTube video player"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+    <div style={{
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: 10,
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      padding: '20px',
+      borderRadius: '10px'
+    }}>
+      <h1 className="w3-text-amber w3-center" style={{ margin: 0, fontSize: '3rem', fontWeight: 'bold' }}>
+        Under Construction
+      </h1>
+    </div>
+  </div>
+</article>
+
+{/* 
+<article id="home" className="w3-mobile w3-hide w3-hide-small w3-container">   <ArticleBox posts={posts} /></article>
+
+<article className="w3-mobile w3-hide w3-container w3-tiny">   <ArticleBox posts={posts} /></article> */}
   
-  <CategoryMenu /> 
+  {/* <CategoryMenu />  */}
 
      {/* <BlogBox posts={posts}  />
   <BlogBox posts={posts2}  />  */}  

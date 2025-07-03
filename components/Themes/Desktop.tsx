@@ -15,12 +15,12 @@ function abmTitle() {
 export default function Desktop(props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | Iterable<React.ReactNode> | null | undefined , title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | Iterable<React.ReactNode> | null | undefined }) {
   return (
     <div className='w3-mobile w3-container'>
-      {abmTitle()}
+       {/* {abmTitle()}
       <Header settings={Navigation.NavButtonDT} />
       <Header settings={Navigation.NavButtonTab} />
       <Header settings={Navigation.NavButtonMobile} />
-    {props.children}
-      <Footer settings="w3-center w3-mobile w3-large w3-border w3-black w3-border-amber w3-text-amber" />
+      <Footer settings="w3-center w3-mobile w3-large w3-border w3-black w3-border-amber w3-text-amber" />  */}
+      {props.children}
     </div>
   )
 }
