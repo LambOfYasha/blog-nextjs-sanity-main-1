@@ -9,6 +9,6 @@ type Props = {
 }
 
 export default function PreviewBlogList({query, token = null}: Props){
-    const posts = usePreview(token, query)
+    const posts = usePreview(token, query) || []
     return <BlogList posts={posts} />
 }
