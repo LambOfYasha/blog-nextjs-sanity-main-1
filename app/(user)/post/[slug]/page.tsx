@@ -55,7 +55,10 @@
 // //     return builder.image(source)
 // // }
 
-// function Post({ params: { slug } }: Props) {
+export default function Post({ params: { slug } }: { params: { slug: string } }) {
+    return <div>Post {slug}</div>
+}
+
 //     const [post, setPost] = useState<Post | null>(null);
 //     const [comments, setComments] = useState<Comment[]>([]);
 //     const [isSubmitting, setIsSubmitting] = useState(false);
