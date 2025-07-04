@@ -40,7 +40,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-button": "^0.7.2",
-    "react-hook-form": "^7.53.2",
+    "react-hook-form": "^7.59.0",
     "react-modal": "^3.16.1",
     "react-portable-text": "^0.6.0",
     "react-tabs": "^6.0.1",

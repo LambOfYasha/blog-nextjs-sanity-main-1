@@ -29,10 +29,22 @@ export const usePreview = (token: string | null, query: string, params?: any) =>
     token: token || undefined,
   })
 
-  // For now, return null/empty data since this is a simplified implementation
+  // For now, return appropriate default values based on the query
   // In a real implementation, you would use React Query or SWR to fetch the data
   // and handle the async nature properly
-  return null
+  
+  // Check if the query is for settings
+  if (query.includes('settings')) {
+    return {}
+  }
+  
+  // Check if the query is for posts (array)
+  if (query.includes('post')) {
+    return []
+  }
+  
+  // Default to empty array
+  return []
 }
 
 

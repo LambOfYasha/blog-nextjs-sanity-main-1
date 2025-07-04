@@ -1,13 +1,8 @@
 "use client"
-import React from 'react'
 import NavLinks from '../data/data'
 import HomeButtons from './WebElements/Buttons'
 
-
-
-
 export function Header (props: {settings: string}){
-
 
     return (<header id="header" className="w3-bar w3-black w3-content">
 {NavLinks.map((link) => {

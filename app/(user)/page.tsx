@@ -1,4 +1,3 @@
-import React from "react"
 import { groq } from "next-sanity"
 import { client } from "../../lib/sanity.client"
 // import BlogBox from "../../components/BlogBox"
