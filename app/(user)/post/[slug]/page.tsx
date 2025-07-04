@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 // import { groq } from "next-sanity"
 // import { client } from '../../../../lib/sanity.client'
 // // import { PortableText } from "@portabletext/react"
