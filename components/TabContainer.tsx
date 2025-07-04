@@ -1,6 +1,6 @@
 
 import { Tabs, TabList, TabPanels, Tab, TabPanel, TabIndicator } from '@chakra-ui/react'
-import { PortableText } from '@portabletext/react';
+// import { PortableText } from '@portabletext/react';
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react'
 
 

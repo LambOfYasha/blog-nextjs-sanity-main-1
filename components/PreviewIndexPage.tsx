@@ -8,8 +8,8 @@ import {
 } from '../lib/sanity.queries'
 
 export default function PreviewIndexPage({ token }: { token: null | string }) {
-  const posts: Post[] = usePreview(token, indexQuery) || []
-  const settings: Settings = usePreview(token, settingsQuery) || {}
+  const posts = usePreview(token, indexQuery) || []
+  const settings = usePreview(token, settingsQuery) || ({} as Settings)
 
-  return <IndexPage preview posts={posts} settings={settings} />
+  return <IndexPage preview posts={posts as Post[]} settings={settings} />
 }
